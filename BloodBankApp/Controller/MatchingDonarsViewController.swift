@@ -20,7 +20,7 @@ class MatchingDonarsViewController: UIViewController {
             super.viewDidLoad()
             tableView.delegate = self
             tableView.dataSource = self
-           // fetchMatchingDonarsData()
+            fetchMatchingDonarsData()
             fetchUserData()
             // Do any additional setup after loading the view.
         }
