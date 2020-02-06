@@ -9,7 +9,7 @@
 import UIKit
 
 class DonarsProfileViewController: UIViewController {
-
+    
     
     @IBOutlet weak var donarsImage: UIImageView!
     @IBOutlet weak var donarFirstName: UITextField!
@@ -39,7 +39,7 @@ class DonarsProfileViewController: UIViewController {
         donarEmail.isEnabled = false
         donarBloodGroup.isEnabled = false
         donarDOB.isEnabled = false
-        }
+    }
     
     func setUpElements () {
         Utilities.styleHollowButton(requestBtnOut)

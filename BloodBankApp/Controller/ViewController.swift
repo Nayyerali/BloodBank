@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var signUpBtn: UIButton!
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         setUpBackgroundVideo()
     }
-
+    
     func elements () {
         Utilities.styleFilledButton(signInBtn)
         Utilities.styleHollowButton(signUpBtn)
@@ -35,35 +35,35 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-
-func showAlert(controller:UIViewController,title:String,message:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
     
-    let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    
-    let okAction = UIAlertAction(title: "Ok", style: .default) { (alertAction) in
-        // ok button press
-        completion(true)
-    }
-    alerController.addAction(okAction)
-    controller.present(alerController, animated: true)
-}
-
-func showAlert(controller:UIViewController,title:String,message:String,actiontitle:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
-    
-    let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    
-    let delete = UIAlertAction(title: actiontitle, style: .destructive) { (alertAction) in
-        // ok button press
-        completion(true)
+    func showAlert(controller:UIViewController,title:String,message:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
+        
+        let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (alertAction) in
+            // ok button press
+            completion(true)
+        }
+        alerController.addAction(okAction)
+        controller.present(alerController, animated: true)
     }
     
-    let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
-        // ok button press
-        completion(false)
-    }
-    alerController.addAction(delete)
-    alerController.addAction(cancel)
-    controller.present(alerController, animated: true)
+    func showAlert(controller:UIViewController,title:String,message:String,actiontitle:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
+        
+        let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let delete = UIAlertAction(title: actiontitle, style: .destructive) { (alertAction) in
+            // ok button press
+            completion(true)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
+            // ok button press
+            completion(false)
+        }
+        alerController.addAction(delete)
+        alerController.addAction(cancel)
+        controller.present(alerController, animated: true)
     }
 }
 extension ViewController {

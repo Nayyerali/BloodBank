@@ -46,19 +46,19 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String? {
         // check for all fields are filled or not
         if
-        //password.text != confirmPassword.text ||
-        firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        PhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        bloodGroup.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        dateOfBirth.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+            //password.text != confirmPassword.text ||
+            firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                PhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                bloodGroup.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                dateOfBirth.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-    
-        return "Please fill in the blanks"
-            }
+            
+            return "Please fill in the blanks"
+        }
         // Check for strong Password
         
         let safePassword = password.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: nil)
-
+        
         toolBar.setItems([cancelButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
     }
@@ -127,7 +127,7 @@ class SignUpViewController: UIViewController {
         }
         
         CustomLoader.instance.showLoaderView()
-  
+        
         Auth.auth().createUser(withEmail: emailTextField.text!, password: password.text!) { authResult, error in
             
             if error == nil{
@@ -142,10 +142,10 @@ class SignUpViewController: UIViewController {
                         // Assign current user while creating account
                         User.userSharefReference = newUser
                         
-                            ServerCommunication.sharedDelegate.uploadUserData(userData: newUser.getUserDict()) { (status, message) in
+                        ServerCommunication.sharedDelegate.uploadUserData(userData: newUser.getUserDict()) { (status, message) in
                             
                             if status{
-
+                                
                                 CustomLoader.instance.hideLoaderView()
                                 // Move to Home screen
                                 self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -224,7 +224,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(password)
         Utilities.styleTextField(confirmPassword)
         Utilities.styleHollowButton(signUpBtn)
-       // placeHolderImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        // placeHolderImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
     }
 }
@@ -236,11 +236,11 @@ extension SignUpViewController:UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
+        
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.placeHolderImage.image = image
         self.dismiss(animated: true, completion: nil)
-        }
+    }
     
     func showAlert(controller:UIViewController,title:String,message:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
         let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -272,26 +272,26 @@ extension SignUpViewController:UIImagePickerControllerDelegate, UINavigationCont
 }
 
 extension SignUpViewController:UIPickerViewDelegate,UIPickerViewDataSource  {
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return bloodTypes.count
-
+        
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return bloodTypes[row]
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         bloodGroup.text = bloodTypes[row]
         //bloodGroup.resignFirstResponder()
     }
     func donePicker() {
-
+        
         bloodGroup.resignFirstResponder()
-        }
     }
+}

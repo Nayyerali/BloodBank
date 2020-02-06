@@ -18,7 +18,7 @@ struct User:Comparable {
     
     static var userSharefReference:User!
     
-        // Created STruct for uploading user data
+    // Created STruct for uploading user data
     
     var firstName:String
     var lastName:String
@@ -26,12 +26,12 @@ struct User:Comparable {
     var bloodGroup:String
     var phoneNumber:String
     var email:String
-//    var password:String
-//    var confirmPassword:String
+    //    var password:String
+    //    var confirmPassword:String
     var userId:String
     var imageUrl:String
     
-        // Creating firebase keys
+    // Creating firebase keys
     
     enum FirebaseKeys:String {
         case FirstName = "First Name"
@@ -41,12 +41,12 @@ struct User:Comparable {
         case BloodGroup = "BloodGroup"
         case PhoneNumber = "PhoneNumber"
         case Email = "Email"
-//        case Password = "Password"
-//        case ConfirmPassword = "ConfirmPassword"
+        //        case Password = "Password"
+        //        case ConfirmPassword = "ConfirmPassword"
         case UserID = "UserId"
     }
     
-        // initalizing firebase keys to download data
+    // initalizing firebase keys to download data
     
     init (userDict:[String:Any]) {
         self.firstName = userDict[FirebaseKeys.FirstName.rawValue] as! String
@@ -55,13 +55,13 @@ struct User:Comparable {
         self.bloodGroup = userDict[FirebaseKeys.BloodGroup.rawValue] as! String
         self.phoneNumber = userDict[FirebaseKeys.PhoneNumber.rawValue] as! String
         self.email = userDict[FirebaseKeys.Email.rawValue] as! String
-//        self.password = userDict[FirebaseKeys.Password.rawValue] as! String
-//        self.confirmPassword = userDict[FirebaseKeys.ConfirmPassword.rawValue] as! String
+        //        self.password = userDict[FirebaseKeys.Password.rawValue] as! String
+        //        self.confirmPassword = userDict[FirebaseKeys.ConfirmPassword.rawValue] as! String
         self.userId = userDict[FirebaseKeys.UserID.rawValue] as! String
         self.imageUrl = userDict[FirebaseKeys.ImageURL.rawValue] as! String
     }
     
-        // initialized struct propertes to use for uploading data
+    // initialized struct propertes to use for uploading data
     
     init (firstName:String,lastName:String,dateOfBirth:String,bloodGroup:String,phoneNumber:String,email:String,userId:String,imageUrl:String) {
         
@@ -71,8 +71,8 @@ struct User:Comparable {
         self.bloodGroup = bloodGroup
         self.phoneNumber = phoneNumber
         self.email = email
-//        self.password = password
-//        self.confirmPassword = confirmPassword
+        //        self.password = password
+        //        self.confirmPassword = confirmPassword
         self.userId = userId
         self.imageUrl = imageUrl
         
@@ -84,17 +84,17 @@ struct User:Comparable {
     
     
     func getUserDict()->[String:Any] {
-    return [
-        FirebaseKeys.FirstName.rawValue:self.firstName,
-        FirebaseKeys.LastName.rawValue:self.lastName,
-        FirebaseKeys.DateOfBirth.rawValue:self.dateOfBirth,
-        FirebaseKeys.BloodGroup.rawValue:self.bloodGroup,
-        FirebaseKeys.PhoneNumber.rawValue:self.phoneNumber,
-        FirebaseKeys.Email.rawValue:self.email,
-//        FirebaseKeys.Password.rawValue:self.password,
-//        FirebaseKeys.ConfirmPassword.rawValue:self.confirmPassword,
-        FirebaseKeys.UserID.rawValue:self.userId,
-        FirebaseKeys.ImageURL.rawValue:self.imageUrl
+        return [
+            FirebaseKeys.FirstName.rawValue:self.firstName,
+            FirebaseKeys.LastName.rawValue:self.lastName,
+            FirebaseKeys.DateOfBirth.rawValue:self.dateOfBirth,
+            FirebaseKeys.BloodGroup.rawValue:self.bloodGroup,
+            FirebaseKeys.PhoneNumber.rawValue:self.phoneNumber,
+            FirebaseKeys.Email.rawValue:self.email,
+            //        FirebaseKeys.Password.rawValue:self.password,
+            //        FirebaseKeys.ConfirmPassword.rawValue:self.confirmPassword,
+            FirebaseKeys.UserID.rawValue:self.userId,
+            FirebaseKeys.ImageURL.rawValue:self.imageUrl
         ]
     }
 }

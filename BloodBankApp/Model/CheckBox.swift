@@ -12,7 +12,7 @@
 import UIKit
 
 class CheckBox: UIButton {
-
+    
     // images
     var checkedImage = UIImage(named: "Checkmark") as! UIImage
     var UncheckImage = UIImage(named: "Circle") as! UIImage

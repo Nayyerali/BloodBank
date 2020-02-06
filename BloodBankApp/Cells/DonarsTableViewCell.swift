@@ -9,7 +9,7 @@
 import UIKit
 
 class DonarsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var donarImage: UIImageView!
     @IBOutlet weak var donarUserName: UITextField!
     @IBOutlet weak var donarBloodGroup: UITextField!
@@ -26,7 +26,7 @@ class DonarsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -34,7 +34,7 @@ class DonarsTableViewCell: UITableViewCell {
         Utilities.styleHollowButton(reuqestBtn)
         Utilities.styleTextField(donarUserName)
         Utilities.styleTextField(donarBloodGroup)
-     //   donarImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //   donarImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     }
-
+    
 }

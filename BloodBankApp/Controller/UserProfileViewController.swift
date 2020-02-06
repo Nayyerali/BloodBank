@@ -11,7 +11,7 @@ import FirebaseAuth
 import SDWebImage
 
 class UserProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var profileFirstName: UITextField!
     @IBOutlet weak var profileLastName: UITextField!
@@ -71,15 +71,15 @@ class UserProfileViewController: UIViewController {
         
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
             User.userSharefReference = nil
             self.navigationController?.navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
+            print ("Error signing out: %@", signOutError)
         }
         
     }
-
+    
     func elements () {
         
         Utilities.styleHollowButton(logOutBtn)
@@ -89,6 +89,6 @@ class UserProfileViewController: UIViewController {
         Utilities.styleTextField(profileEmail)
         Utilities.styleTextField(profileBloodGroup)
         Utilities.styleTextField(profileDateOfBirth)
-       // userImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        // userImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     }
 }

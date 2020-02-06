@@ -11,11 +11,11 @@ import FirebaseAuth
 import SDWebImage
 
 class AllDonarsViewController: UIViewController {
-
+    
     var user = [User]()
-
+    
     @IBOutlet weak var tableView: UITableView!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -27,23 +27,23 @@ class AllDonarsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-}
-
-    func fetchAllDOnarsData() {
-        
-                ServerCommunication.sharedDelegate.fetchAllDonarsData { (status, message, users) in
-                    if status {
-                        // Success
-                        self.user = users!
-                        self.tableView.reloadData()
-                    } else {
-                        // faliure
-                        print ("Could not find Data")
-                    }
-                }
-            }
     }
     
+    func fetchAllDOnarsData() {
+        
+        ServerCommunication.sharedDelegate.fetchAllDonarsData { (status, message, users) in
+            if status {
+                // Success
+                self.user = users!
+                self.tableView.reloadData()
+            } else {
+                // faliure
+                print ("Could not find Data")
+            }
+        }
+    }
+}
+
 extension AllDonarsViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,12 +51,12 @@ extension AllDonarsViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "donarsCell") as! DonarsTableViewCell
         cell.donarUserName.text = user[indexPath.row].firstName
         cell.donarBloodGroup.text = user[indexPath.row].bloodGroup
-        //cell.donarImage.image = user[indexPath.row].imageUrl
-        if let url = URL(string: User.userSharefReference.imageUrl){
+        //  cell.donarImage.image = user[indexPath.row].imageUrl
+        if let url = URL(string: (user[indexPath.row].imageUrl)){
             cell.donarImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
             }
         }

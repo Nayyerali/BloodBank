@@ -12,7 +12,7 @@ import JLActivityIndicator
 
 
 class SignInViewController: UIViewController {
-
+    
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,13 +26,13 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInBtn(_ sender: Any) {
-
+        
         CustomLoader.instance.showLoaderView()
-
+        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
             
             if error == nil{
-                 //User loggedin
+                //User loggedin
                 // Funtionality is to identify which user is logged in using user ID which is coming from auth result
                 ServerCommunication.sharedDelegate.fetchUserData(userId: (authResult?.user.uid)!) { (status, message, user) in
                     if status{
@@ -47,8 +47,8 @@ class SignInViewController: UIViewController {
                     }else{
                         CustomLoader.instance.hideLoaderView()
                         self?.showAlert(controller: self!, title: "Failure", message: message, actiontitle: "Ok", completion: { (okButtonPressed) in
-
-                            }
+                            
+                        }
                         )
                     }
                 }
@@ -57,9 +57,9 @@ class SignInViewController: UIViewController {
                 self!.errorLabel.alpha = 1
                 self!.errorLabel.text = error?.localizedDescription
                 return
-                CustomLoader.instance.hideLoaderView()
+                    CustomLoader.instance.hideLoaderView()
                 print(error?.localizedDescription)
-
+                
             }
         }
     }

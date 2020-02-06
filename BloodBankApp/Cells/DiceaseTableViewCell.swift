@@ -9,18 +9,18 @@
 import UIKit
 
 class DiceaseTableViewCell: UITableViewCell {
-
-     @IBOutlet weak var diseasesTextField: UITextField!
-        
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            // Initialization code
-            diseasesTextField.isEnabled = false
-        }
-
-        override func setSelected(_ selected: Bool, animated: Bool) {
-            super.setSelected(selected, animated: animated)
-
-            // Configure the view for the selected state
-        }
+    
+    @IBOutlet weak var diseasesTextField: UITextField!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        diseasesTextField.isEnabled = false
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
