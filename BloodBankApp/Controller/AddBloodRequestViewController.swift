@@ -11,8 +11,8 @@ import UIKit
 class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     @IBOutlet weak var requiredBlood: UITextField!
-
     @IBOutlet weak var addBtnOutlet: UIButton!
+    
     let pickerView = UIPickerView()
     var bloodTypes = ["A+","A-","B+","B-","AB+","AB-","O-","O+"]
     

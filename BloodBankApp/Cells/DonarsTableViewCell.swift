@@ -13,7 +13,6 @@ class DonarsTableViewCell: UITableViewCell {
     @IBOutlet weak var donarImage: UIImageView!
     @IBOutlet weak var donarUserName: UITextField!
     @IBOutlet weak var donarBloodGroup: UITextField!
-    @IBOutlet weak var viewProfleBtn: UIButton!
     @IBOutlet weak var internelView: UIView!
     
     override func awakeFromNib() {
@@ -30,7 +29,6 @@ class DonarsTableViewCell: UITableViewCell {
     
     func elements () {
         donarImage.roundedImage()
-        Utilities.styleFilledButton(viewProfleBtn)
         Utilities.styleTextField(donarUserName)
         Utilities.styleTextField(donarBloodGroup)
         internelView.layer.cornerRadius = 15.0

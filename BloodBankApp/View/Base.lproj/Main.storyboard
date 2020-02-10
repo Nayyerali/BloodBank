@@ -442,7 +442,7 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-8I-41X">
                                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="36.5"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <color key="textColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -454,7 +454,7 @@
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkr-ul-8eD">
                                                                             <rect key="frame" x="0.0" y="82.5" width="182" height="36.5"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <color key="textColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -509,7 +509,7 @@
                     <navigationItem key="navigationItem" id="TtG-MH-cB1"/>
                     <connections>
                         <outlet property="tableView" destination="99L-nn-A9g" id="l1a-4q-H7C"/>
-                        <segue destination="scj-VU-WZy" kind="show" id="gDI-cC-agg"/>
+                        <segue destination="scj-VU-WZy" kind="show" identifier="DonarsProfileViewController" id="gDI-cC-agg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4b7-j2-Bh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -707,7 +707,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="ZP9-mo-G1x">
                             <color key="tintColor" red="0.61960784310000006" green="0.12549019610000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="saveDiseases:" destination="KlT-XT-HxZ" id="JU9-05-0Zd"/>
+                                <action selector="saveDiseases:" destination="KlT-XT-HxZ" id="li9-uC-X5c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -735,6 +735,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5u4-Xy-YoT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="matchingDonarsCell" rowHeight="200" id="3Kc-Im-vS6" customClass="MatchingDonarsTableViewCell" customModule="BloodBankApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
@@ -771,38 +772,29 @@
                                                                     <rect key="frame" x="192" y="0.0" width="182" height="160"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdI-Lv-Hsi">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="182" height="28"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="182" height="36.5"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <color key="textColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8U-Qi-8nz">
-                                                                            <rect key="frame" x="0.0" y="33" width="182" height="28"/>
+                                                                            <rect key="frame" x="0.0" y="41.5" width="182" height="36"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQc-fv-6Pe">
-                                                                            <rect key="frame" x="0.0" y="66" width="182" height="28"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="82.5" width="182" height="36.5"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <color key="textColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Blood Group" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-Qs-MNa">
-                                                                            <rect key="frame" x="0.0" y="99" width="182" height="28"/>
+                                                                            <rect key="frame" x="0.0" y="124" width="182" height="36"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsw-uh-GUt">
-                                                                            <rect key="frame" x="0.0" y="132" width="182" height="28"/>
-                                                                            <color key="backgroundColor" red="0.58823529409999997" green="0.1960784314" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                                            <state key="normal" title="Profile">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                                            </state>
-                                                                        </button>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -831,7 +823,6 @@
                                             <outlet property="donarImage" destination="P5N-Rl-AEm" id="YqA-Ik-tJc"/>
                                             <outlet property="donarUserName" destination="S8U-Qi-8nz" id="uuH-gh-l22"/>
                                             <outlet property="internelView" destination="RlH-mL-ZLr" id="SfL-Af-yY3"/>
-                                            <outlet property="viewProfilebtn" destination="nsw-uh-GUt" id="WN0-yS-bNe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -849,7 +840,7 @@
                     <navigationItem key="navigationItem" id="e1X-By-I6n"/>
                     <connections>
                         <outlet property="tableView" destination="5u4-Xy-YoT" id="aGI-ei-ju5"/>
-                        <segue destination="scj-VU-WZy" kind="show" id="YOb-Oa-1dA"/>
+                        <segue destination="scj-VU-WZy" kind="show" identifier="DonarsProfileViewController" id="YOb-Oa-1dA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca2-0v-eTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1067,7 +1058,7 @@
         <!--ProfileViewController-->
         <scene sceneID="WRo-Zv-E4T">
             <objects>
-                <viewController title="ProfileViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="scj-VU-WZy" customClass="DonarsProfileViewController" customModule="BloodBankApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DonarsProfileViewController" title="ProfileViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="scj-VU-WZy" customClass="DonarsProfileViewController" customModule="BloodBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P4Q-Tb-jAA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1205,6 +1196,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LLf-2u-aEp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1224,6 +1216,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fg2-hZ-chy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.61960784310000006" green="0.12549019610000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1237,7 +1230,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sZL-JS-fSt">
             <objects>
-                <navigationController storyboardIdentifier="DonarProfileViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZYy-rT-rce" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZYy-rT-rce" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ybL-dh-Wjl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1247,7 +1240,7 @@
                             <color key="textColor" red="0.58823529409999997" green="0.1960784314" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="0.58823529409999997" green="0.1960784314" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.61960784310000006" green="0.12549019610000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1268,7 +1261,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCR-he-PRp">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="193" id="34N-8O-qKg">
@@ -1296,7 +1289,7 @@
                                 </prototypes>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="o7m-1Q-DTL">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1365,6 +1358,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bb0-fV-LG0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.5157994628" green="0.085057966410000005" blue="0.078969217839999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1388,8 +1382,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nQI-7e-L32"/>
-        <segue reference="fLN-RJ-b1I"/>
-        <segue reference="5Y0-cb-V8l"/>
+        <segue reference="gDI-cC-agg"/>
+        <segue reference="my9-dd-qEa"/>
         <segue reference="Nnx-sU-rxr"/>
     </inferredMetricsTieBreakers>
 </document>

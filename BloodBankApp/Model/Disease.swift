@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Disease: Decodable{
+struct Disease: Decodable,Hashable{
     var disease: String
 }

@@ -77,6 +77,7 @@ class MatchingDonarsViewController: UIViewController {
         }
     }
 }
+
 extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,9 +98,17 @@ extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
-        let profileController = storyboard!.instantiateViewController(identifier: "DonarProfileViewController") as! DonarsProfileViewController
-        present(profileController, animated: true, completion: nil)
-       
+        let userID = self.user[indexPath.row].userId
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let donarProfileController = storyBoard.instantiateViewController(identifier: "DonarsProfileViewController") as! DonarsProfileViewController
+        ServerCommunication.sharedDelegate.fetchUserData(userId: userID) { (status, message, user) in
+            if status{
+                donarProfileController.donar = user
+               self.navigationController!.pushViewController(donarProfileController, animated: true)
+
+            }else{
+                
+            }
+        }
     }
 }

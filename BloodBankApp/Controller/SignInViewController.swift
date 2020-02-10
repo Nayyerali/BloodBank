@@ -15,7 +15,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var passBtnOut: UIButton!
     
     let emailImage = UIImage(named: "Email Icon")

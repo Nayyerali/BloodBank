@@ -59,45 +59,73 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         self.selectDeselectCell(tableView: tableView, indexPath: indexPath)
     }
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         self.selectDeselectCell(tableView: tableView, indexPath: indexPath)
     }
+    
     func selectDeselectCell(tableView: UITableView, indexPath: IndexPath){
         self.selectedDisease.removeAll()
         if let selectionArray = tableView.indexPathsForSelectedRows{
             for indexOfRow in selectionArray {
                 selectedDisease.append(userDiseases[indexPath.row])
-                
             }
-            
         }
-        
     }
     
-
+    
+    //
+    //    var result = [selectedDisease].reduce([[String: String]](), { (previous, current) -> [[String: String]] in
+    //        let type = previous.count == 0 ? "A" : "B"
+    //        let dictForCurrent = [
+    //            "name": current,
+    //            "type": type
+    //        ]
+    //        return previous + [dictForCurrent]
+    //    })
+    
+    
+    //let scoreboard = self.selectedDisease.reduce(into: [:]) { $0[$1] = 0 }
+    
+    //    func arrayToDict() {
+    //
+    //    let scoreboard: [String: Int] = selectedDisease.reduce(into: [:], { result, next in
+    //        result[next] = 0
+    //            }
+    //        )
+    //    }
+    //    let scoreboard = selectedDisease.reduce(into: [String: Int]()) { $0[$1] = 0 }
     
     // unable to store Diseases because its type of array and i am currenlty unable to resolve this issue
     
+    
+    
+    
+    
     @IBAction func saveDiseases(_ sender: Any) {
         
-      //  abc()
-        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: selectedDisease, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+        //  abc()
+        
+        var dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
+            result[next] = 0
+            }
+        )
+        
+        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: dictDiseaseArray, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
             if status {
                 self.showAlert(controller: self, title: "Success", message: message) { (ok) in
-                   //self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 }
             } else {
                 self.showAlert(controller: self, title: "Failed", message: message) { (ok) in
-                   // self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
         print ("")
     }
-    
     
     // this functionality is not used
     

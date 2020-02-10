@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DonarsProfileViewController: UIViewController {
     
@@ -19,14 +20,33 @@ class DonarsProfileViewController: UIViewController {
     @IBOutlet weak var donarDOB: UITextField!
     @IBOutlet weak var viewDiseaseBtnOut: UIButton!
     
+    var donar:User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         donarsImage.roundedImage()
+        setUpDonarProfile()
         setUpElements()
+        fieldsStatus()
         // Do any additional setup after loading the view.
     }
+  
+    func setUpDonarProfile() {
+        
+        self.donarFirstName.text = donar.firstName
+        self.donarLastName.text = donar.lastName
+        self.donarBloodGroup.text = donar.bloodGroup
+        self.donarEmail.text = donar.email
+        self.donarDOB.text = donar.dateOfBirth
+        self.donarPhoneNumber.text = donar.phoneNumber
+        if let url = URL(string: donar.imageUrl){
+            self.donarsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
+                
+            }
+        }
+    }
 
-    func filedsStatus () {
+    func fieldsStatus () {
         donarFirstName.isEnabled = false
         donarLastName.isEnabled = false
         donarPhoneNumber.isEnabled = false
