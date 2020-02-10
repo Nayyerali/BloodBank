@@ -24,7 +24,7 @@ class CustomLoader: UIView {
     }()
     
     lazy var gifImage: UIImageView = {
-        var gifImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
+        var gifImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
         gifImage.contentMode = .scaleAspectFill
         gifImage.center = transparentView.center
         gifImage.isUserInteractionEnabled = false
@@ -43,5 +43,4 @@ class CustomLoader: UIView {
     func hideLoaderView() {
         self.transparentView.removeFromSuperview()
     }
-    
 }

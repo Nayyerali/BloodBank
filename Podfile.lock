@@ -119,7 +119,6 @@ PODS:
   - GTMSessionFetcher/Core (1.3.0)
   - InputBarAccessoryView (4.2.2)
   - IQKeyboardManagerSwift (6.5.5)
-  - JLActivityIndicator (2.1)
   - leveldb-library (1.22)
   - MessageKit (3.0.0):
     - InputBarAccessoryView (~> 4.2.2)
@@ -140,7 +139,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - IQKeyboardManagerSwift
-  - JLActivityIndicator
   - MessageKit
   - SDWebImage (~> 5.0)
 
@@ -167,7 +165,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - InputBarAccessoryView
     - IQKeyboardManagerSwift
-    - JLActivityIndicator
     - leveldb-library
     - MessageKit
     - nanopb
@@ -196,13 +193,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   InputBarAccessoryView: 2b937602598e2fab3149f37f51dd7ad795653812
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
-  JLActivityIndicator: b26ace7e4e8e3102337020d408c2d509d5b64bf2
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MessageKit: e892a9ca49ebe6d82684d3a93ad84021fa23e2c6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: 878ea933afba63b80006908279d1d1da1edb9c1e
+PODFILE CHECKSUM: 42360d87e7d1e81f478afaceae51182ed7bbe146
 
 COCOAPODS: 1.8.4

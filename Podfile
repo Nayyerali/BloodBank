@@ -15,5 +15,4 @@ target 'BloodBankApp' do
 	pod 'SDWebImage', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'MessageKit'
-  pod 'JLActivityIndicator'
 end

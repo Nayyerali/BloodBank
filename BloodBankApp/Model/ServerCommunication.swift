@@ -22,6 +22,75 @@ public class ServerCommunication{
         firebaseStorage = Storage.storage()
     }
     
+    func requestdBlood(bloodGroup:String,imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
+        let requestCollection = firebaseFirestore.collection("BloodRequest").document().setData(["BloodGroup":bloodGroup,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
+            if error == nil{
+                // Success
+                completion(true,"Blood Request is added")
+            }else{
+                // Fail
+                completion(false,(error?.localizedDescription)!)
+            }
+        }
+    }
+    
+    func uploadUserDiseases (addedDisease:[Disease],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
+        
+    let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
+            if error == nil {
+                // Success
+                completion(true, "Selected Diseases Are Added")
+            } else {
+                // Failure
+                completion(false, (error!.localizedDescription))
+            }
+        }
+    }
+    
+    func fetchAllBloodRequests(completion:@escaping(_ status:Bool, _ message:String,_ tasks:[BloodRequest]?)->Void){
+        
+        firebaseFirestore.collection("BloodRequest").getDocuments { (snapshot, error) in
+            if error == nil {
+                // Blood Request Are Fetched Succesfully
+                if let requestDoc = snapshot?.documents{
+                    // Got Requests Data
+                    var requests:Array = [BloodRequest]()
+                    for bloodRequest in requestDoc {
+                        let requestData = bloodRequest.data()
+                        let name = requestData["Name"] as! String
+                        let date = requestData["Date"] as! Timestamp
+                        let requiredBloodGroup = requestData["BloodGroup"] as! String
+                        let id = requestData["Id"] as! String
+                        let image = requestData["ImageUrl"] as! String
+                        
+                        let newBloodrequest = BloodRequest(firstName: name, bloodGroup: requiredBloodGroup, userId: User.userSharefReference.userId, imageUrl: image, id: id)
+                        requests.append(newBloodrequest)
+                    }
+                    completion(true,"Got Requests tasks",requests)
+                    
+                }else{
+                    // request doc not found
+                    completion(false, "Request data not found",nil)
+                }
+            }else{
+                // failure
+                completion(false,error!.localizedDescription,nil)
+            }
+        }
+    }
+    
+    func deleteBloodRequest(id:String,completion:@escaping(_ status:Bool, _ message:String)->Void){
+        
+        
+        firebaseFirestore.collection("BloodRequest").document(id).delete { (error) in
+            if error == nil{
+                completion(true,"Blood Request is deleted")
+            }else{
+                completion(false,error!.localizedDescription)
+            }
+        }
+    }
+    
     func uploadUserData(userData:[String:Any],completion:@escaping(_ status:Bool,_ message:String)->Void){
         let userId = userData["UserId"] as! String
         firebaseFirestore.collection("Users").document(userId).setData(userData) { (error) in
@@ -29,19 +98,6 @@ public class ServerCommunication{
                 completion(true,"User data uploaded")
             }else{
                 completion(false,error!.localizedDescription)
-            }
-        }
-    }
-    
-    func uploadUserDiseases (diseaseArray:[String:String], completion:@escaping(_ status:Bool, _ message:String) -> Void) {
-        
-        let userId = diseaseArray["UserID"] as! String
-        
-        firebaseFirestore.collection("Diseases").document().setData(diseaseArray) { (error) in
-            if error == nil {
-                completion(true, "User Diseases Uploaded")
-            } else {
-                completion(false, error!.localizedDescription)
             }
         }
     }
@@ -152,7 +208,6 @@ public class ServerCommunication{
                             let firstName = usersDocuments["First Name"] as! String
                             let bloodGroup = usersDocuments["BloodGroup"] as! String
                             let imageUrl = usersDocuments["ImageURL"] as! String
-                            
                             let lastName = usersDocuments["LastName"] as! String
                             let email = usersDocuments["Email"] as! String
                             let dateOfBirth = usersDocuments["DateOfBirth"] as! String

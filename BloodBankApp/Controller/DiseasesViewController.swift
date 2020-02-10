@@ -20,7 +20,9 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.selectedDisease.removeAll()
         downloadJson ()
+        
         self.diseaseTableView.isEditing = true
         self.diseaseTableView.allowsMultipleSelectionDuringEditing = true
         diseaseTableView.dataSource = self
@@ -57,7 +59,7 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         self.selectDeselectCell(tableView: tableView, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -68,17 +70,32 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         if let selectionArray = tableView.indexPathsForSelectedRows{
             for indexOfRow in selectionArray {
                 selectedDisease.append(userDiseases[indexPath.row])
+                
             }
-            //print (selectedDisease)
+            
         }
+        
     }
+    
+
+    
+    // unable to store Diseases because its type of array and i am currenlty unable to resolve this issue
     
     @IBAction func saveDiseases(_ sender: Any) {
         
-        //        Disease.diseasesSharedReference = userDisease
-        //            ServerCommunication.sharedDelegate.uploadUserDiseases(diseaseArray: selectedDisease.getDiseasesDict()) { (status, message) in
-        //            <#code#>
-        //        }
+      //  abc()
+        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: selectedDisease, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+            if status {
+                self.showAlert(controller: self, title: "Success", message: message) { (ok) in
+                   //self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                self.showAlert(controller: self, title: "Failed", message: message) { (ok) in
+                   // self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        print ("")
     }
     
     
@@ -116,6 +133,7 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
                         self.userDiseases.append(diseses)
                     }
                     DispatchQueue.main.async {
+                        
                         self.diseaseTableView.reloadData()
                     }
                 } catch {
@@ -140,6 +158,17 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         searchingDieases = false
         searchBar.text = ""
         diseaseTableView.reloadData()
+    }
+    
+    func showAlert(controller:UIViewController,title:String,message:String,completion:@escaping(_ okBtnPressed:Bool)->Void){
+        let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (alertAction) in
+            // ok button press
+            completion(true)
+        }
+        alerController.addAction(okAction)
+        controller.present(alerController, animated: true)
     }
 }
 

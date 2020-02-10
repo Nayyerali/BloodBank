@@ -94,4 +94,12 @@ extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSourc
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+        let profileController = storyboard!.instantiateViewController(identifier: "DonarProfileViewController") as! DonarsProfileViewController
+        present(profileController, animated: true, completion: nil)
+       
+    }
 }

@@ -14,8 +14,8 @@ import UIKit
 class CheckBox: UIButton {
     
     // images
-    var checkedImage = UIImage(named: "Checkmark") as! UIImage
-    var UncheckImage = UIImage(named: "Circle") as! UIImage
+    var checkedImage = UIImage(named: "HidePassword") as! UIImage
+    var UncheckImage = UIImage(named: "SeePassword") as! UIImage
     
     // bool property
     var isChecked:Bool = false {

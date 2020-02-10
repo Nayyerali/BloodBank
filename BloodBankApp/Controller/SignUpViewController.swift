@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
-import JLActivityIndicator
 
 class SignUpViewController: UIViewController {
     
@@ -41,6 +40,28 @@ class SignUpViewController: UIViewController {
         datePickerView ()
         elements()
         addGesture()
+    }
+    
+    var passwordToggle = true
+    
+    @IBAction func confirmPassVisibility(_ sender: Any) {
+        
+        if (passwordToggle == true) {
+            confirmPassword.isSecureTextEntry = false
+        } else {
+            confirmPassword.isSecureTextEntry = true
+        }
+        passwordToggle = !passwordToggle
+    }
+    
+    @IBAction func passVIsibility(_ sender: UIButton) {
+        
+        if (passwordToggle == true) {
+            password.isSecureTextEntry = false
+        } else {
+            password.isSecureTextEntry = true
+        }
+        passwordToggle = !passwordToggle
     }
     
     func validateFields() -> String? {

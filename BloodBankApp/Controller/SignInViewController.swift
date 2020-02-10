@@ -8,22 +8,47 @@
 
 import UIKit
 import FirebaseAuth
-import JLActivityIndicator
-
 
 class SignInViewController: UIViewController {
-    
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var passBtnOut: UIButton!
+    
+    let emailImage = UIImage(named: "Email Icon")
+    let passwordImage = UIImage(named: "Password Icon")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        textFieldsImages(textField: emailTextField, imageIcon: emailImage!)
+//        textFieldsImages(textField: passwordTextField, imageIcon: passwordImage!)
         elements()
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldsImages (textField: UITextField, imageIcon: UIImage) {
+        
+        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: imageIcon.size.width, height: imageIcon.size.height))
+        leftImageView.image = imageIcon
+        leftImageView.contentMode = .center
+        textField.leftView = leftImageView
+        textField.leftViewMode = UITextField.ViewMode.always
+    }
+    
+    var passwordToggle = true
+    
+    @IBAction func passBtn(_ sender: Any) {
+        
+        if (passwordToggle == true) {
+            passwordTextField.isSecureTextEntry = false
+        } else {
+            passwordTextField.isSecureTextEntry = true
+        }
+        passwordToggle = !passwordToggle
+        }
     
     @IBAction func signInBtn(_ sender: Any) {
         

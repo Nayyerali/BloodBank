@@ -18,6 +18,10 @@
 		1746A20223CCC9EF00FAB595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20023CCC9EF00FAB595 /* Main.storyboard */; };
 		1746A20423CCCA0000FAB595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20323CCCA0000FAB595 /* Assets.xcassets */; };
 		1746A20723CCCA0000FAB595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20523CCCA0000FAB595 /* LaunchScreen.storyboard */; };
+		17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DBF23EE13AF0052B7BA /* AddRequest.swift */; };
+		17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */; };
+		17A20DC423EE15D60052B7BA /* RequestBloodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */; };
+		17A20DC623EE15F60052B7BA /* AddBloodRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC523EE15F60052B7BA /* AddBloodRequestViewController.swift */; };
 		17B4102523CDE6B500696589 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4102423CDE6B400696589 /* Utilities.swift */; };
 		17B4102723CDECD900696589 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4102623CDECD900696589 /* SignInViewController.swift */; };
 		17B4102923CDECE400696589 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4102823CDECE400696589 /* SignUpViewController.swift */; };
@@ -52,6 +56,10 @@
 		1746A20323CCCA0000FAB595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1746A20623CCCA0000FAB595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1746A20823CCCA0000FAB595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17A20DBF23EE13AF0052B7BA /* AddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequest.swift; sourceTree = "<group>"; };
+		17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBloodViewController.swift; sourceTree = "<group>"; };
+		17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBloodTableViewCell.swift; sourceTree = "<group>"; };
+		17A20DC523EE15F60052B7BA /* AddBloodRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBloodRequestViewController.swift; sourceTree = "<group>"; };
 		17B4102423CDE6B400696589 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		17B4102623CDECD900696589 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		17B4102823CDECE400696589 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -135,14 +143,16 @@
 			isa = PBXGroup;
 			children = (
 				1746A1FE23CCC9EF00FAB595 /* ViewController.swift */,
-				173F5FB923E6390100859192 /* DiseasesViewController.swift */,
-				17FCD61E23E7A90100F2356E /* ChatViewController.swift */,
 				17B4102623CDECD900696589 /* SignInViewController.swift */,
 				17B4102823CDECE400696589 /* SignUpViewController.swift */,
-				17B4102A23CDECF300696589 /* UserProfileViewController.swift */,
-				17B4102E23CDED2200696589 /* AllDonarsViewController.swift */,
 				17278A3023DB2E2B004462FB /* MatchingDonarsViewController.swift */,
+				17B4102E23CDED2200696589 /* AllDonarsViewController.swift */,
+				17B4102A23CDECF300696589 /* UserProfileViewController.swift */,
+				173F5FB923E6390100859192 /* DiseasesViewController.swift */,
+				17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */,
+				17A20DC523EE15F60052B7BA /* AddBloodRequestViewController.swift */,
 				17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */,
+				17FCD61E23E7A90100F2356E /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 			children = (
 				17B4103023CDED2F00696589 /* User.swift */,
 				170EB6DC23E632910033C8E6 /* Disease.swift */,
+				17A20DBF23EE13AF0052B7BA /* AddRequest.swift */,
 				17B4103C23CE075C00696589 /* DonarsData.swift */,
 				17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */,
 				170EB6DB23E632900033C8E6 /* CheckBox.swift */,
@@ -192,6 +203,7 @@
 			children = (
 				17F71F7823E0E7C700E3C85F /* DiceaseTableViewCell.swift */,
 				17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */,
+				17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */,
 				17278A3223DB4977004462FB /* MatchingDonarsTableViewCell.swift */,
 			);
 			path = Cells;
@@ -317,9 +329,11 @@
 				17B4102923CDECE400696589 /* SignUpViewController.swift in Sources */,
 				170EB6DE23E632910033C8E6 /* Disease.swift in Sources */,
 				EF8C555623E8D454002BD190 /* CustomLoader.swift in Sources */,
+				17A20DC423EE15D60052B7BA /* RequestBloodTableViewCell.swift in Sources */,
 				17B9A9C423EA0F2400BD8BF9 /* Gif+Image.swift in Sources */,
 				1746A1FF23CCC9EF00FAB595 /* ViewController.swift in Sources */,
 				170EB6DD23E632910033C8E6 /* CheckBox.swift in Sources */,
+				17A20DC623EE15F60052B7BA /* AddBloodRequestViewController.swift in Sources */,
 				17B4102B23CDECF300696589 /* UserProfileViewController.swift in Sources */,
 				17278A3323DB4977004462FB /* MatchingDonarsTableViewCell.swift in Sources */,
 				17B4102F23CDED2200696589 /* AllDonarsViewController.swift in Sources */,
@@ -327,6 +341,7 @@
 				1746A1FB23CCC9EF00FAB595 /* AppDelegate.swift in Sources */,
 				17278A3123DB2E2B004462FB /* MatchingDonarsViewController.swift in Sources */,
 				17FCD61F23E7A90100F2356E /* ChatViewController.swift in Sources */,
+				17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */,
 				17F71F7923E0E7C700E3C85F /* DiceaseTableViewCell.swift in Sources */,
 				173F5FBA23E6390100859192 /* DiseasesViewController.swift in Sources */,
 				17B4102523CDE6B500696589 /* Utilities.swift in Sources */,
@@ -334,6 +349,7 @@
 				17B4103323CDED4100696589 /* ServerCommunication.swift in Sources */,
 				17B4102723CDECD900696589 /* SignInViewController.swift in Sources */,
 				17B4103123CDED2F00696589 /* User.swift in Sources */,
+				17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */,
 				17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */,
 				17B4103D23CE075C00696589 /* DonarsData.swift in Sources */,
 				1746A1FD23CCC9EF00FAB595 /* SceneDelegate.swift in Sources */,

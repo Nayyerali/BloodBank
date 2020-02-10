@@ -13,12 +13,12 @@ class DonarsTableViewCell: UITableViewCell {
     @IBOutlet weak var donarImage: UIImageView!
     @IBOutlet weak var donarUserName: UITextField!
     @IBOutlet weak var donarBloodGroup: UITextField!
-    @IBOutlet weak var reuqestBtn: UIButton!
+    @IBOutlet weak var viewProfleBtn: UIButton!
+    @IBOutlet weak var internelView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        donarImage.roundedImage()
         donarUserName.isEnabled = false
         donarBloodGroup.isEnabled = false
         elements()
@@ -26,15 +26,15 @@ class DonarsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     func elements () {
-        Utilities.styleHollowButton(reuqestBtn)
+        donarImage.roundedImage()
+        Utilities.styleFilledButton(viewProfleBtn)
         Utilities.styleTextField(donarUserName)
         Utilities.styleTextField(donarBloodGroup)
-        //   donarImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        internelView.layer.cornerRadius = 15.0
+        internelView.layer.borderWidth = 5.0
+        internelView.layer.borderColor = UIColor.black.cgColor
     }
-    
 }
