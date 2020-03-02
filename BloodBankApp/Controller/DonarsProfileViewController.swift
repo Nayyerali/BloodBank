@@ -23,14 +23,20 @@ class DonarsProfileViewController: UIViewController {
     var donar:User!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         donarsImage.roundedImage()
         setUpDonarProfile()
         setUpElements()
         fieldsStatus()
-        // Do any additional setup after loading the view.
     }
-  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func setUpDonarProfile() {
         
         self.donarFirstName.text = donar.firstName
@@ -45,7 +51,7 @@ class DonarsProfileViewController: UIViewController {
             }
         }
     }
-
+    
     func fieldsStatus () {
         donarFirstName.isEnabled = false
         donarLastName.isEnabled = false

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		170EB6DD23E632910033C8E6 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170EB6DB23E632900033C8E6 /* CheckBox.swift */; };
 		170EB6DE23E632910033C8E6 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170EB6DC23E632910033C8E6 /* Disease.swift */; };
+		17171D5F2402ABDC0002562E /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17171D5E2402ABDC0002562E /* MessagesController.swift */; };
+		17171D612402AD6F0002562E /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17171D602402AD6F0002562E /* MessagesTableViewCell.swift */; };
 		17278A3123DB2E2B004462FB /* MatchingDonarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17278A3023DB2E2B004462FB /* MatchingDonarsViewController.swift */; };
 		17278A3323DB4977004462FB /* MatchingDonarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17278A3223DB4977004462FB /* MatchingDonarsTableViewCell.swift */; };
 		173F5FBA23E6390100859192 /* DiseasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173F5FB923E6390100859192 /* DiseasesViewController.swift */; };
@@ -18,6 +20,10 @@
 		1746A20223CCC9EF00FAB595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20023CCC9EF00FAB595 /* Main.storyboard */; };
 		1746A20423CCCA0000FAB595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20323CCCA0000FAB595 /* Assets.xcassets */; };
 		1746A20723CCCA0000FAB595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1746A20523CCCA0000FAB595 /* LaunchScreen.storyboard */; };
+		17581B6C24080C7300E67722 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17581B6B24080C7300E67722 /* ChatMessageCell.swift */; };
+		1770E21D24032B820084985E /* NewMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770E21C24032B820084985E /* NewMessagesTableViewCell.swift */; };
+		1770E21F240340200084985E /* ChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770E21E240340200084985E /* ChatLogsViewController.swift */; };
+		179AEC7D2403FEDA00827377 /* MessagesClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179AEC7C2403FEDA00827377 /* MessagesClass.swift */; };
 		17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DBF23EE13AF0052B7BA /* AddRequest.swift */; };
 		17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */; };
 		17A20DC423EE15D60052B7BA /* RequestBloodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */; };
@@ -34,9 +40,9 @@
 		17B4103B23CDF3D600696589 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17B4103A23CDF3D600696589 /* GoogleService-Info.plist */; };
 		17B4103D23CE075C00696589 /* DonarsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103C23CE075C00696589 /* DonarsData.swift */; };
 		17B9A9C423EA0F2400BD8BF9 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */; };
+		17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */; };
 		17F71F7923E0E7C700E3C85F /* DiceaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F71F7823E0E7C700E3C85F /* DiceaseTableViewCell.swift */; };
 		17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */; };
-		17FCD61F23E7A90100F2356E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FCD61E23E7A90100F2356E /* ChatViewController.swift */; };
 		1AAC1F60E5EE0ACFE1D10838 /* Pods_BloodBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996A317A5530382DB7185D7E /* Pods_BloodBankApp.framework */; };
 		EF8C555623E8D454002BD190 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8C555523E8D454002BD190 /* CustomLoader.swift */; };
 		EF8C555823E8D471002BD190 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = EF8C555723E8D471002BD190 /* demo.gif */; };
@@ -45,6 +51,8 @@
 /* Begin PBXFileReference section */
 		170EB6DB23E632900033C8E6 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		170EB6DC23E632910033C8E6 /* Disease.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		17171D5E2402ABDC0002562E /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		17171D602402AD6F0002562E /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		17278A3023DB2E2B004462FB /* MatchingDonarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingDonarsViewController.swift; sourceTree = "<group>"; };
 		17278A3223DB4977004462FB /* MatchingDonarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingDonarsTableViewCell.swift; sourceTree = "<group>"; };
 		173F5FB923E6390100859192 /* DiseasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +64,10 @@
 		1746A20323CCCA0000FAB595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1746A20623CCCA0000FAB595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1746A20823CCCA0000FAB595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17581B6B24080C7300E67722 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		1770E21C24032B820084985E /* NewMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesTableViewCell.swift; sourceTree = "<group>"; };
+		1770E21E240340200084985E /* ChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogsViewController.swift; sourceTree = "<group>"; };
+		179AEC7C2403FEDA00827377 /* MessagesClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesClass.swift; sourceTree = "<group>"; };
 		17A20DBF23EE13AF0052B7BA /* AddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequest.swift; sourceTree = "<group>"; };
 		17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBloodViewController.swift; sourceTree = "<group>"; };
 		17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBloodTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,9 +84,9 @@
 		17B4103A23CDF3D600696589 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17B4103C23CE075C00696589 /* DonarsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsData.swift; sourceTree = "<group>"; };
 		17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
+		17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesViewController.swift; sourceTree = "<group>"; };
 		17F71F7823E0E7C700E3C85F /* DiceaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceaseTableViewCell.swift; sourceTree = "<group>"; };
 		17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewDesign.swift; sourceTree = "<group>"; };
-		17FCD61E23E7A90100F2356E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4E7EE3430F8823853F338AC7 /* Pods-BloodBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BloodBankApp.release.xcconfig"; path = "Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		922D4CB92D150D485FBF420C /* Pods-BloodBankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BloodBankApp.debug.xcconfig"; path = "Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp.debug.xcconfig"; sourceTree = "<group>"; };
 		996A317A5530382DB7185D7E /* Pods_BloodBankApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BloodBankApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +164,9 @@
 				17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */,
 				17A20DC523EE15F60052B7BA /* AddBloodRequestViewController.swift */,
 				17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */,
-				17FCD61E23E7A90100F2356E /* ChatViewController.swift */,
+				17171D5E2402ABDC0002562E /* MessagesController.swift */,
+				17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */,
+				1770E21E240340200084985E /* ChatLogsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +176,7 @@
 			children = (
 				17B4103023CDED2F00696589 /* User.swift */,
 				170EB6DC23E632910033C8E6 /* Disease.swift */,
+				179AEC7C2403FEDA00827377 /* MessagesClass.swift */,
 				17A20DBF23EE13AF0052B7BA /* AddRequest.swift */,
 				17B4103C23CE075C00696589 /* DonarsData.swift */,
 				17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */,
@@ -205,6 +220,9 @@
 				17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */,
 				17A20DC323EE15D60052B7BA /* RequestBloodTableViewCell.swift */,
 				17278A3223DB4977004462FB /* MatchingDonarsTableViewCell.swift */,
+				17171D602402AD6F0002562E /* MessagesTableViewCell.swift */,
+				1770E21C24032B820084985E /* NewMessagesTableViewCell.swift */,
+				17581B6B24080C7300E67722 /* ChatMessageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -326,6 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17171D612402AD6F0002562E /* MessagesTableViewCell.swift in Sources */,
+				179AEC7D2403FEDA00827377 /* MessagesClass.swift in Sources */,
 				17B4102923CDECE400696589 /* SignUpViewController.swift in Sources */,
 				170EB6DE23E632910033C8E6 /* Disease.swift in Sources */,
 				EF8C555623E8D454002BD190 /* CustomLoader.swift in Sources */,
@@ -340,7 +360,6 @@
 				17B4103523CDEDD700696589 /* DonarsProfileViewController.swift in Sources */,
 				1746A1FB23CCC9EF00FAB595 /* AppDelegate.swift in Sources */,
 				17278A3123DB2E2B004462FB /* MatchingDonarsViewController.swift in Sources */,
-				17FCD61F23E7A90100F2356E /* ChatViewController.swift in Sources */,
 				17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */,
 				17F71F7923E0E7C700E3C85F /* DiceaseTableViewCell.swift in Sources */,
 				173F5FBA23E6390100859192 /* DiseasesViewController.swift in Sources */,
@@ -348,10 +367,15 @@
 				17B4103923CDEE6F00696589 /* DonarsTableViewCell.swift in Sources */,
 				17B4103323CDED4100696589 /* ServerCommunication.swift in Sources */,
 				17B4102723CDECD900696589 /* SignInViewController.swift in Sources */,
+				17171D5F2402ABDC0002562E /* MessagesController.swift in Sources */,
+				17581B6C24080C7300E67722 /* ChatMessageCell.swift in Sources */,
 				17B4103123CDED2F00696589 /* User.swift in Sources */,
+				1770E21F240340200084985E /* ChatLogsViewController.swift in Sources */,
+				17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */,
 				17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */,
 				17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */,
 				17B4103D23CE075C00696589 /* DonarsData.swift in Sources */,
+				1770E21D24032B820084985E /* NewMessagesTableViewCell.swift in Sources */,
 				1746A1FD23CCC9EF00FAB595 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

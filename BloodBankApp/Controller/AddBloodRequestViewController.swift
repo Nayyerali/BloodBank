@@ -17,14 +17,19 @@ class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPic
     var bloodTypes = ["A+","A-","B+","B-","AB+","AB-","O-","O+"]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         Utilities.styleTextField(requiredBlood)
         Utilities.styleFilledButton(addBtnOutlet)
         pickerView.delegate = self as! UIPickerViewDelegate
         pickerView.dataSource = self as! UIPickerViewDataSource
         requiredBlood.inputView = pickerView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        // Do any additional setup after loading the view.
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     var addBloodRequests : addBloodRequestProtocol?

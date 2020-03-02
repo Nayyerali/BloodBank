@@ -32,8 +32,8 @@ class UserProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         setupUserProfile()
-        
     }
     
     func elementsEditing() {
@@ -77,7 +77,6 @@ class UserProfileViewController: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
     }
     
     func elements () {
@@ -89,6 +88,5 @@ class UserProfileViewController: UIViewController {
         Utilities.styleTextField(profileEmail)
         Utilities.styleTextField(profileBloodGroup)
         Utilities.styleTextField(profileDateOfBirth)
-        // userImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     }
 }

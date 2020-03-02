@@ -24,7 +24,7 @@ class CustomLoader: UIView {
     }()
     
     lazy var gifImage: UIImageView = {
-        var gifImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 60))
+        var gifImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 30))
         gifImage.contentMode = .scaleAspectFill
         gifImage.center = transparentView.center
         gifImage.isUserInteractionEnabled = false

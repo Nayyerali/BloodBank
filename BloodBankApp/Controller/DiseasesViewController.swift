@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
@@ -68,52 +69,63 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func selectDeselectCell(tableView: UITableView, indexPath: IndexPath){
         self.selectedDisease.removeAll()
+        
         if let selectionArray = tableView.indexPathsForSelectedRows{
             for indexOfRow in selectionArray {
                 selectedDisease.append(userDiseases[indexPath.row])
+                //selectedDisease.append(selectionArray)
+                //print (selectionArray)
+                print (selectedDisease)
             }
         }
     }
+//    func stringDict() {
+//
+//    var str = ["A", "B", "C", "D", "E"]
+//    var abc = [String]()
+//    var abcd = [String:Any].self
+//    let num = "0:"
+//    for a in str{
+//
+//        abcd.inser = abc.append(num + a)
+//
+//    }
+//
+//        print(abc)
+//    }
     
+    var dict = [String:Any]()
+    var i = 0
     
-    //
-    //    var result = [selectedDisease].reduce([[String: String]](), { (previous, current) -> [[String: String]] in
-    //        let type = previous.count == 0 ? "A" : "B"
-    //        let dictForCurrent = [
-    //            "name": current,
-    //            "type": type
-    //        ]
-    //        return previous + [dictForCurrent]
-    //    })
-    
-    
-    //let scoreboard = self.selectedDisease.reduce(into: [:]) { $0[$1] = 0 }
-    
-    //    func arrayToDict() {
-    //
-    //    let scoreboard: [String: Int] = selectedDisease.reduce(into: [:], { result, next in
-    //        result[next] = 0
-    //            }
-    //        )
-    //    }
-    //    let scoreboard = selectedDisease.reduce(into: [String: Int]()) { $0[$1] = 0 }
-    
-    // unable to store Diseases because its type of array and i am currenlty unable to resolve this issue
-    
-    
-    
-    
-    
+//    func arrayToDict () {
+//
+////        var dict = [String:Any]()
+////        var i = 0
+////
+//        for values in selectedDisease {
+//            i = i + 1
+//
+//            dict.updateValue(values, forKey: "\(i)")
+//        }
+//
+//    }
+//
     @IBAction func saveDiseases(_ sender: Any) {
         
         //  abc()
         
-        var dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
-            result[next] = 0
-            }
-        )
+//        let dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
+//            result[next] = 0
+//        }
+////        )
+        for values in selectedDisease {
+                   i = i + 1
+
+                   dict.updateValue(values, forKey: "\(i)")
+               }
+        print (dict)
         
-        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: dictDiseaseArray, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease:dict, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
             if status {
                 self.showAlert(controller: self, title: "Success", message: message) { (ok) in
                     self.navigationController?.popViewController(animated: true)
@@ -124,7 +136,7 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
                 }
             }
         }
-        print ("")
+        print ("User Diseases Uploaded Successfully")
     }
     
     // this functionality is not used

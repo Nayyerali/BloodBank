@@ -18,6 +18,7 @@ class MatchingDonarsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         fetchMatchingDonarsData()
@@ -28,7 +29,7 @@ class MatchingDonarsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func fetchUserData () {
@@ -104,10 +105,9 @@ extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSourc
         ServerCommunication.sharedDelegate.fetchUserData(userId: userID) { (status, message, user) in
             if status{
                 donarProfileController.donar = user
-               self.navigationController!.pushViewController(donarProfileController, animated: true)
-
-            }else{
+                self.navigationController!.pushViewController(donarProfileController, animated: true)
                 
+            }else{
             }
         }
     }

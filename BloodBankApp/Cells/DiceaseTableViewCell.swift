@@ -14,7 +14,6 @@ class DiceaseTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         diseasesTextField.isEnabled = false
     }
     

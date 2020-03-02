@@ -67,7 +67,6 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String? {
         // check for all fields are filled or not
         if
-            //password.text != confirmPassword.text ||
             firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 PhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -77,7 +76,6 @@ class SignUpViewController: UIViewController {
                 confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 dateOfBirth.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-            
             return "Please fill in the blanks"
         }
         // Check for strong Password
@@ -106,7 +104,6 @@ class SignUpViewController: UIViewController {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         dateOfBirth.inputView = datePicker
-        //datePicker?.tintColor = .clear
         datePicker?.addTarget(self, action: #selector(SignUpViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         let tapGasture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.viewTapped(gestureRecognizer:)))

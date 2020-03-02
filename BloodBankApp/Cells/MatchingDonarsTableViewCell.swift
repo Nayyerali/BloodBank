@@ -17,7 +17,6 @@ class MatchingDonarsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         donarUserName.isEnabled = false
         donarBloodGroup.isEnabled = false
         elements()
@@ -33,6 +32,5 @@ class MatchingDonarsTableViewCell: UITableViewCell {
         Utilities.styleTextField(donarBloodGroup)
         internelView.layer.cornerRadius = 15.0
         internelView.layer.borderWidth = 5.0
-        internelView.layer.borderColor = UIColor.black.cgColor
     }
 }

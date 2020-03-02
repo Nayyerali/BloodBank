@@ -12,7 +12,9 @@ target 'BloodBankApp' do
 	pod 'FirebaseFirestoreSwift'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 	pod 'SDWebImage', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'MessageKit'
+  pod 'ChameleonFramework'
 end

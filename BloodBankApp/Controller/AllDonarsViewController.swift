@@ -27,6 +27,8 @@ class AllDonarsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.tabBarController?.tabBar.isHidden = false
+        
     }
     
     func fetchAllDOnarsData() {
@@ -61,5 +63,21 @@ extension AllDonarsViewController: UITableViewDelegate,UITableViewDataSource {
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let userID = self.user[indexPath.row].userId
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let donarProfileController = storyBoard.instantiateViewController(identifier: "DonarsProfileViewController") as! DonarsProfileViewController
+        ServerCommunication.sharedDelegate.fetchUserData(userId: userID) { (status, message, user) in
+            if status{
+                donarProfileController.donar = user
+                self.navigationController!.pushViewController(donarProfileController, animated: true)
+                
+            }else{
+                
+            }
+        }
     }
 }

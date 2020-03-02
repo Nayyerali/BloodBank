@@ -22,8 +22,6 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        textFieldsImages(textField: emailTextField, imageIcon: emailImage!)
-//        textFieldsImages(textField: passwordTextField, imageIcon: passwordImage!)
         elements()
         // Do any additional setup after loading the view.
     }
@@ -47,7 +45,7 @@ class SignInViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
         }
         passwordToggle = !passwordToggle
-        }
+    }
     
     @IBAction func signInBtn(_ sender: Any) {
         
@@ -81,9 +79,6 @@ class SignInViewController: UIViewController {
                 self!.errorLabel.alpha = 1
                 self!.errorLabel.text = error?.localizedDescription
                 return
-                    CustomLoader.instance.hideLoaderView()
-                print(error?.localizedDescription)
-                
             }
         }
     }

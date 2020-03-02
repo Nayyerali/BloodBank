@@ -33,23 +33,10 @@ public class ServerCommunication{
             }
         }
     }
-    
-//func uploadUserDiseases (addedDisease:[Disease:Any],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
 //
-//let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
-//        if error == nil {
-//            // Success
-//            completion(true, "Selected Diseases Are Added")
-//        } else {
-//            // Failure
-//            completion(false, (error!.localizedDescription))
-//        }
-//    }
-//}
-    
-    func uploadUserDiseases (addedDisease:[Disease:Any],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
-        
-    let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
+    func uploadUserDiseases (addedDisease:[String:Any],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
+
+        let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
             if error == nil {
                 // Success
                 completion(true, "Selected Diseases Are Added")

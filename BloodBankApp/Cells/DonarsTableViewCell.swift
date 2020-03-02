@@ -17,7 +17,6 @@ class DonarsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         donarUserName.isEnabled = false
         donarBloodGroup.isEnabled = false
         elements()
