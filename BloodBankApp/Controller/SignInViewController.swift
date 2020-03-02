@@ -79,6 +79,8 @@ class SignInViewController: UIViewController {
                 self!.errorLabel.alpha = 1
                 self!.errorLabel.text = error?.localizedDescription
                 return
+                CustomLoader.instance.hideLoaderView()
+                print(error?.localizedDescription)
             }
         }
     }

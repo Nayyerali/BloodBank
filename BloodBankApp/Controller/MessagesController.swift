@@ -24,14 +24,14 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         super.viewDidLoad()
         chatLogsTableView.delegate = self
         chatLogsTableView.dataSource = self
-        //    navigationItem.title = User.userSharefReference.firstName
         observeUserMessages()
-        //        messages.removeAll()
-        //        messagesDictionary.removeAll()
-        //tableView.reloadData()
-       // observeMessages()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         
+         super.viewWillAppear(animated)
+         self.tabBarController?.tabBar.isHidden = false
+     }
        func observeUserMessages() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return

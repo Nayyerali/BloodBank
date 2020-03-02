@@ -79,50 +79,50 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
             }
         }
     }
-//    func stringDict() {
-//
-//    var str = ["A", "B", "C", "D", "E"]
-//    var abc = [String]()
-//    var abcd = [String:Any].self
-//    let num = "0:"
-//    for a in str{
-//
-//        abcd.inser = abc.append(num + a)
-//
-//    }
-//
-//        print(abc)
-//    }
+    //    func stringDict() {
+    //
+    //    var str = ["A", "B", "C", "D", "E"]
+    //    var abc = [String]()
+    //    var abcd = [String:Any].self
+    //    let num = "0:"
+    //    for a in str{
+    //
+    //        abcd.inser = abc.append(num + a)
+    //
+    //    }
+    //
+    //        print(abc)
+    //    }
     
     var dict = [String:Any]()
     var i = 0
     
-//    func arrayToDict () {
-//
-////        var dict = [String:Any]()
-////        var i = 0
-////
-//        for values in selectedDisease {
-//            i = i + 1
-//
-//            dict.updateValue(values, forKey: "\(i)")
-//        }
-//
-//    }
-//
+    //    func arrayToDict () {
+    //
+    ////        var dict = [String:Any]()
+    ////        var i = 0
+    ////
+    //        for values in selectedDisease {
+    //            i = i + 1
+    //
+    //            dict.updateValue(values, forKey: "\(i)")
+    //        }
+    //
+    //    }
+    //
     @IBAction func saveDiseases(_ sender: Any) {
         
         //  abc()
         
-//        let dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
-//            result[next] = 0
-//        }
-////        )
+        //        let dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
+        //            result[next] = 0
+        //        }
+        ////        )
         for values in selectedDisease {
-                   i = i + 1
-
-                   dict.updateValue(values, forKey: "\(i)")
-               }
+            i = i + 1
+            
+            dict.updateValue(values, forKey: "\(i)")
+        }
         print (dict)
         
         ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease:dict, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in

@@ -212,6 +212,7 @@ public class ServerCommunication{
                             let email = usersDocuments["Email"] as! String
                             let dateOfBirth = usersDocuments["DateOfBirth"] as! String
                             let phoneNumber = usersDocuments["PhoneNumber"] as! String
+                            //let usersIDTest = usersDocuments["UserId"] as! String
                             
                             let user = User(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, bloodGroup: bloodGroup, phoneNumber: phoneNumber, email: email, userId: userId, imageUrl: imageUrl)
                             
