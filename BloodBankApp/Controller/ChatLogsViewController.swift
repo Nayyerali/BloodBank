@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import SDWebImage
 
-class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate  {
+class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate{
     
     let cellId = "cellId"
     var messages = [MessagesClass]()
@@ -24,18 +24,28 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
         }
     }
     
+    @IBOutlet weak var bottomVIewForKeyboard: UIView!
+    @IBOutlet weak var enterMessageField: UITextView!
+    @IBOutlet weak var sendBtnOut: UIButton!
     @IBOutlet weak var chatLogsCollectionVIew: UICollectionView!
-    @IBOutlet weak var enterMessageField: UITextField!
     @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        //fetchAllDOnarsData()
+        enterMessageField.isEditable = true
+        enterMessageField.layer.borderWidth = 1
+        enterMessageField.layer.borderColor = UIColor.black.cgColor
         chatLogsCollectionVIew?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         chatLogsCollectionVIew?.alwaysBounceVertical = true
         chatLogsCollectionVIew?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
-        chatLogsCollectionVIew?.keyboardDismissMode = .interactive
+        self.addObservsers()
+        self.addTapGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func observeMessages() {
@@ -57,70 +67,46 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
                 
                 let message = MessagesClass(dictionary: dictionary)
                 
-//                if message.chatPartnerId() == self.users?.userId{
-//                    self.messages.append(message)
-//                    DispatchQueue.main.async(execute: {
-//                        self.chatLogsCollectionVIew.reloadData()
-//                    })
-//                }
-//
-//            }, withCancel: nil)
-//
-//        }, withCancel: nil)
-//    }
-
-                            //do we need to attempt filtering anymore?
-                            self.messages.append(message)
-                            DispatchQueue.main.async(execute: {
-                                self.chatLogsCollectionVIew?.reloadData()
-                            })
-                            
-                            }, withCancel: nil)
-                        
-                        }, withCancel: nil)
-                }
-    
-    override var canBecomeFirstResponder : Bool {
-        return true
+                self.messages.append(message)
+                DispatchQueue.main.async(execute: {
+                    self.chatLogsCollectionVIew?.reloadData()
+                })
+                
+            }, withCancel: nil)
+            
+        }, withCancel: nil)
     }
     
-    func setupKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    func addObservsers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardOpen(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardClosed), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self)
+    @objc func keyboardClosed(){
+        self.view.frame.origin.y = 0
     }
     
-    var containerViewBottomAnchor: NSLayoutConstraint?
-    
-    @objc func handleKeyboardWillShow(_ notification: Notification) {
-        let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-        let keyboardDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+    @objc func keyboardOpen(notification:Notification){
         
-        containerViewBottomAnchor?.constant = -keyboardFrame!.height
-        UIView.animate(withDuration: keyboardDuration!, animations: {
-            self.view.layoutIfNeeded()
-        })
+        getKeyboardHeight(notification: notification)
+        self.view.frame.origin.y = -getKeyboardHeight(notification: notification) + 25
     }
     
-    func setupInputComponents() {
-        
-        containerViewBottomAnchor = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        containerViewBottomAnchor?.isActive = true
+    func getKeyboardHeight(notification:Notification)->CGFloat{
+        let info = notification.userInfo
+        let keyboardFrame = info![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardFrame.cgRectValue.size.height
     }
     
-    @objc func handleKeyboardWillHide(_ notification: Notification) {
-        let keyboardDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
-        
-        containerViewBottomAnchor?.constant = 0
-        UIView.animate(withDuration: keyboardDuration!, animations: {
-            self.view.layoutIfNeeded()
-        })
+    func addTapGesture(){
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(screenTaped))
+        self.chatLogsCollectionVIew.addGestureRecognizer(tapGes)
+        self.chatLogsCollectionVIew.isUserInteractionEnabled = true
+    }
+    
+    @objc func screenTaped(){
+        sendBtn(self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -218,7 +204,7 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
             let fromId = Auth.auth().currentUser?.uid
             let timeStamp = Int(Date().timeIntervalSince1970)
             let values = ["Message": enterMessageField.text!, "Timestamp": timeStamp, "FromID": fromId, "ToID":toId] as [String : Any]
-
+            
             childRef.updateChildValues(values) { (error, ref) in
                 
                 if error != nil {

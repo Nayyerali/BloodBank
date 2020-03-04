@@ -9,17 +9,20 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import FirebaseDatabase
 
 public class ServerCommunication{
     
     var firebaseFirestore:Firestore!
     var firebaseStorage:Storage!
+    var firebaseDatabase:Database!
     
     static var sharedDelegate = ServerCommunication()
     
     private init() {
         firebaseFirestore = Firestore.firestore()
         firebaseStorage = Storage.storage()
+        firebaseDatabase = Database.database()
     }
     
     func requestdBlood(bloodGroup:String,imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
@@ -34,7 +37,7 @@ public class ServerCommunication{
         }
     }
 //
-    func uploadUserDiseases (addedDisease:[String:Any],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
+    func uploadUserDiseases (addedDisease:[Disease],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
 
         let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
             if error == nil {
@@ -273,7 +276,7 @@ public class ServerCommunication{
                                     break
                                 }
                             }
-                            users.append(user)
+                            //users.append(user)
                         }
                     }
                     completion(true, "Get Donars", users)

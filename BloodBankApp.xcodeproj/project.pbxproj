@@ -41,6 +41,9 @@
 		17B4103D23CE075C00696589 /* DonarsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103C23CE075C00696589 /* DonarsData.swift */; };
 		17B9A9C423EA0F2400BD8BF9 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */; };
 		17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */; };
+		17DC9B88240FF82E008FA88A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC9B87240FF82E008FA88A /* ForgotPasswordViewController.swift */; };
+		17DC9B8A240FF896008FA88A /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC9B89240FF896008FA88A /* ChangeEmailViewController.swift */; };
+		17DC9B8C240FF8B0008FA88A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC9B8B240FF8B0008FA88A /* ChangePasswordViewController.swift */; };
 		17F71F7923E0E7C700E3C85F /* DiceaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F71F7823E0E7C700E3C85F /* DiceaseTableViewCell.swift */; };
 		17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */; };
 		1AAC1F60E5EE0ACFE1D10838 /* Pods_BloodBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996A317A5530382DB7185D7E /* Pods_BloodBankApp.framework */; };
@@ -85,6 +88,9 @@
 		17B4103C23CE075C00696589 /* DonarsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsData.swift; sourceTree = "<group>"; };
 		17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
 		17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesViewController.swift; sourceTree = "<group>"; };
+		17DC9B87240FF82E008FA88A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		17DC9B89240FF896008FA88A /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		17DC9B8B240FF8B0008FA88A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		17F71F7823E0E7C700E3C85F /* DiceaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceaseTableViewCell.swift; sourceTree = "<group>"; };
 		17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewDesign.swift; sourceTree = "<group>"; };
 		4E7EE3430F8823853F338AC7 /* Pods-BloodBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BloodBankApp.release.xcconfig"; path = "Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 				17B4102623CDECD900696589 /* SignInViewController.swift */,
 				17B4102823CDECE400696589 /* SignUpViewController.swift */,
 				17278A3023DB2E2B004462FB /* MatchingDonarsViewController.swift */,
+				17DC9B87240FF82E008FA88A /* ForgotPasswordViewController.swift */,
+				17DC9B89240FF896008FA88A /* ChangeEmailViewController.swift */,
+				17DC9B8B240FF8B0008FA88A /* ChangePasswordViewController.swift */,
 				17B4102E23CDED2200696589 /* AllDonarsViewController.swift */,
 				17B4102A23CDECF300696589 /* UserProfileViewController.swift */,
 				173F5FB923E6390100859192 /* DiseasesViewController.swift */,
@@ -359,11 +368,13 @@
 				17B4102F23CDED2200696589 /* AllDonarsViewController.swift in Sources */,
 				17B4103523CDEDD700696589 /* DonarsProfileViewController.swift in Sources */,
 				1746A1FB23CCC9EF00FAB595 /* AppDelegate.swift in Sources */,
+				17DC9B8A240FF896008FA88A /* ChangeEmailViewController.swift in Sources */,
 				17278A3123DB2E2B004462FB /* MatchingDonarsViewController.swift in Sources */,
 				17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */,
 				17F71F7923E0E7C700E3C85F /* DiceaseTableViewCell.swift in Sources */,
 				173F5FBA23E6390100859192 /* DiseasesViewController.swift in Sources */,
 				17B4102523CDE6B500696589 /* Utilities.swift in Sources */,
+				17DC9B8C240FF8B0008FA88A /* ChangePasswordViewController.swift in Sources */,
 				17B4103923CDEE6F00696589 /* DonarsTableViewCell.swift in Sources */,
 				17B4103323CDED4100696589 /* ServerCommunication.swift in Sources */,
 				17B4102723CDECD900696589 /* SignInViewController.swift in Sources */,
@@ -372,6 +383,7 @@
 				17B4103123CDED2F00696589 /* User.swift in Sources */,
 				1770E21F240340200084985E /* ChatLogsViewController.swift in Sources */,
 				17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */,
+				17DC9B88240FF82E008FA88A /* ForgotPasswordViewController.swift in Sources */,
 				17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */,
 				17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */,
 				17B4103D23CE075C00696589 /* DonarsData.swift in Sources */,

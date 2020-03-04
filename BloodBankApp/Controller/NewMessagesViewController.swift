@@ -83,7 +83,6 @@ class NewMessagesViewController: UIViewController,UITableViewDelegate,UITableVie
                 cell.contactImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
                 }
             }
-            
         }
         return cell
     }

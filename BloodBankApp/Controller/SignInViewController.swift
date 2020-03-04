@@ -22,6 +22,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        editingStuff()
         elements()
         // Do any additional setup after loading the view.
     }
@@ -69,19 +70,24 @@ class SignInViewController: UIViewController {
                     }else{
                         CustomLoader.instance.hideLoaderView()
                         self?.showAlert(controller: self!, title: "Failure", message: message, actiontitle: "Ok", completion: { (okButtonPressed) in
-                            
                         }
                         )
                     }
                 }
             }else{
-                
                 self!.errorLabel.alpha = 1
                 self!.errorLabel.text = error?.localizedDescription
                 return
                 CustomLoader.instance.hideLoaderView()
                 print(error?.localizedDescription)
             }
+        }
+    }
+    
+    func editingStuff(){
+        
+        if emailTextField.isEditing && passwordTextField.isEditing {
+           errorLabel.alpha = 0
         }
     }
     

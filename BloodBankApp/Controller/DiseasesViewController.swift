@@ -71,12 +71,13 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         self.selectedDisease.removeAll()
         
         if let selectionArray = tableView.indexPathsForSelectedRows{
-            for indexOfRow in selectionArray {
-                selectedDisease.append(userDiseases[indexPath.row])
+//            for indexOfRow in selectionArray {
+             //   selectedDisease.append(userDiseases[indexOfRow])
+                print(userDiseases[indexPath.row])
                 //selectedDisease.append(selectionArray)
-                //print (selectionArray)
+                print (selectionArray)
                 print (selectedDisease)
-            }
+//            }
         }
     }
     //    func stringDict() {
@@ -118,14 +119,14 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         //            result[next] = 0
         //        }
         ////        )
-        for values in selectedDisease {
-            i = i + 1
-            
-            dict.updateValue(values, forKey: "\(i)")
-        }
-        print (dict)
+//        for values in selectedDisease {
+//            i = i + 1
+//
+//            dict.updateValue(values, forKey: "\(i)")
+//        }
+//        print (dict)
         
-        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease:dict, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease:selectedDisease, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
             if status {
                 self.showAlert(controller: self, title: "Success", message: message) { (ok) in
                     self.navigationController?.popViewController(animated: true)
@@ -168,10 +169,13 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
                 do {
                     let abc = try JSONDecoder().decode([Disease].self, from: data!)
                     print("Json fetched Succesfully")
+//                    print(self.userDiseases)
+                    
                     for diseses in abc{
                         
                         self.userDiseases.append(diseses)
                     }
+//                    print(self.userDiseases)
                     DispatchQueue.main.async {
                         
                         self.diseaseTableView.reloadData()

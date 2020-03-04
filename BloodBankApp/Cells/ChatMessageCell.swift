@@ -1,10 +1,10 @@
 //
 //  ChatMessageCell.swift
-//  gameofchats
+//  BloodBankApp
 //
-//  Created by Brian Voong on 7/12/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
-//
+//  Created by Nayyer Ali on 2/24/20.
+//  Copyright © 2020 Nayyer Ali. All rights reserved.
+
 
 import UIKit
 
@@ -13,10 +13,12 @@ class ChatMessageCell: UICollectionViewCell {
     let textView: UITextView = {
         let tv = UITextView()
         tv.text = "SAMPLE TEXT FOR NOW"
-        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.font = UIFont(name: "Verdana", size: 16)
+       // tv.font = UIFont.systemFont(ofSize: 16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
         tv.isEditable = false
+        tv.isScrollEnabled = false
         tv.textColor = .white
         return tv
     }()
