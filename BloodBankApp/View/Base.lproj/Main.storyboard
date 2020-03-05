@@ -884,7 +884,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-cH-8PN">
-                                <rect key="frame" x="10" y="353.66666666666669" width="394" height="88"/>
+                                <rect key="frame" x="10" y="353.66666666666669" width="394" height="142"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Email Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7v-82-jRa">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -897,10 +897,15 @@
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAX-kR-UjW">
+                                        <rect key="frame" x="0.0" y="108" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-X1-aEp">
-                                <rect key="frame" x="103.66666666666669" y="491.66666666666669" width="207" height="31.000000000000057"/>
+                                <rect key="frame" x="103.66666666666669" y="545.66666666666663" width="207" height="31"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
@@ -908,7 +913,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxm-jB-ud8">
-                                <rect key="frame" x="20" y="547.66666666666663" width="374" height="20.666666666666629"/>
+                                <rect key="frame" x="20" y="601.66666666666663" width="374" height="20.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -939,6 +944,7 @@
                     <connections>
                         <outlet property="errorLabel" destination="Lxm-jB-ud8" id="0is-xW-Qdw"/>
                         <outlet property="newEmailField" destination="ses-ov-hcU" id="mAC-c2-5Dz"/>
+                        <outlet property="passwordField" destination="lAX-kR-UjW" id="gjH-lu-2RF"/>
                         <outlet property="updateEmailBtnOut" destination="CHq-X1-aEp" id="eEP-YU-KBY"/>
                     </connections>
                 </viewController>

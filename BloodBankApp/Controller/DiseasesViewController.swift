@@ -71,13 +71,10 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         self.selectedDisease.removeAll()
         
         if let selectionArray = tableView.indexPathsForSelectedRows{
-//            for indexOfRow in selectionArray {
-             //   selectedDisease.append(userDiseases[indexOfRow])
-                print(userDiseases[indexPath.row])
-                //selectedDisease.append(selectionArray)
-                print (selectionArray)
+            for indexOfRow in selectionArray {
+                selectedDisease.append(userDiseases[indexPath.row])
                 print (selectedDisease)
-//            }
+            }
         }
     }
     //    func stringDict() {

@@ -81,12 +81,21 @@ class ChangePasswordViewController: UIViewController {
         newPassword.isEnabled = false
         confirmNewPassword.isEnabled = false
         
+        
         changePassword(email: User.userSharefReference.email, currentPassword: currentPassword.text!, newPassword: newPassword.text!) { (error) in
             if error == nil {
                 
                 self.showAlert(controller: self, title: "Success", message: "Password Changed Successfully") { (Ok) in
                     self.showAlert(controller: self, title: "Confirmation", message: "Please Login With Updated Password") { (Ok) in
-                        self.navigationController?.navigationController?.popToRootViewController(animated: true)
+                        
+                        let firebaseAuth = Auth.auth()
+                        do {
+                            try firebaseAuth.signOut()
+                            User.userSharefReference = nil
+                            self.navigationController?.navigationController?.popToRootViewController(animated: true)
+                        } catch let signOutError as NSError {
+                            print ("Error signing out: %@", signOutError)
+                        }
                     }
                     
                 }
