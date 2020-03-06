@@ -23,6 +23,7 @@
 		17581B6C24080C7300E67722 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17581B6B24080C7300E67722 /* ChatMessageCell.swift */; };
 		1770E21D24032B820084985E /* NewMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770E21C24032B820084985E /* NewMessagesTableViewCell.swift */; };
 		1770E21F240340200084985E /* ChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770E21E240340200084985E /* ChatLogsViewController.swift */; };
+		17812D1D24127E37009505D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17812D1C24127E37009505D6 /* GoogleService-Info.plist */; };
 		179AEC7D2403FEDA00827377 /* MessagesClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179AEC7C2403FEDA00827377 /* MessagesClass.swift */; };
 		17A20DC023EE13AF0052B7BA /* AddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DBF23EE13AF0052B7BA /* AddRequest.swift */; };
 		17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */; };
@@ -37,7 +38,6 @@
 		17B4103323CDED4100696589 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103223CDED4100696589 /* ServerCommunication.swift */; };
 		17B4103523CDEDD700696589 /* DonarsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */; };
 		17B4103923CDEE6F00696589 /* DonarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */; };
-		17B4103B23CDF3D600696589 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17B4103A23CDF3D600696589 /* GoogleService-Info.plist */; };
 		17B4103D23CE075C00696589 /* DonarsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103C23CE075C00696589 /* DonarsData.swift */; };
 		17B9A9C423EA0F2400BD8BF9 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */; };
 		17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */; };
@@ -70,6 +70,7 @@
 		17581B6B24080C7300E67722 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		1770E21C24032B820084985E /* NewMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesTableViewCell.swift; sourceTree = "<group>"; };
 		1770E21E240340200084985E /* ChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogsViewController.swift; sourceTree = "<group>"; };
+		17812D1C24127E37009505D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		179AEC7C2403FEDA00827377 /* MessagesClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesClass.swift; sourceTree = "<group>"; };
 		17A20DBF23EE13AF0052B7BA /* AddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequest.swift; sourceTree = "<group>"; };
 		17A20DC123EE15AB0052B7BA /* RequestBloodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBloodViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		17B4103223CDED4100696589 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsProfileViewController.swift; sourceTree = "<group>"; };
 		17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsTableViewCell.swift; sourceTree = "<group>"; };
-		17B4103A23CDF3D600696589 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17B4103C23CE075C00696589 /* DonarsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsData.swift; sourceTree = "<group>"; };
 		17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
 		17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				1746A20323CCCA0000FAB595 /* Assets.xcassets */,
 				1752624D23D1F52600A60EEE /* Helping Files */,
 				1746A20523CCCA0000FAB595 /* LaunchScreen.storyboard */,
-				17B4103A23CDF3D600696589 /* GoogleService-Info.plist */,
+				17812D1C24127E37009505D6 /* GoogleService-Info.plist */,
 				1746A20823CCCA0000FAB595 /* Info.plist */,
 				EF8C555723E8D471002BD190 /* demo.gif */,
 			);
@@ -297,8 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1746A20723CCCA0000FAB595 /* LaunchScreen.storyboard in Resources */,
-				17B4103B23CDF3D600696589 /* GoogleService-Info.plist in Resources */,
 				EF8C555823E8D471002BD190 /* demo.gif in Resources */,
+				17812D1D24127E37009505D6 /* GoogleService-Info.plist in Resources */,
 				1746A20423CCCA0000FAB595 /* Assets.xcassets in Resources */,
 				1746A20223CCC9EF00FAB595 /* Main.storyboard in Resources */,
 			);

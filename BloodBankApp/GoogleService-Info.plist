@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>65561323197-680tdijknhkqt118rsk2g2d8ub7f2k3u.apps.googleusercontent.com</string>
+	<string>525731520309-pvtpkd85083rfcrckjc54s3fi7v6ffk3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.65561323197-680tdijknhkqt118rsk2g2d8ub7f2k3u</string>
+	<string>com.googleusercontent.apps.525731520309-pvtpkd85083rfcrckjc54s3fi7v6ffk3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB6T44ORqg8tkrb4eKqs-LaEZah8M50JJY</string>
+	<string>AIzaSyAniWnGAOS5f1tDq9ughknmSKzpSXJNctY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>65561323197</string>
+	<string>525731520309</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Nayyer-Ali.BloodBankApp</string>
 	<key>PROJECT_ID</key>
-	<string>bloodbankapp-c39ce</string>
+	<string>bloodbank-daff4</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bloodbankapp-c39ce.appspot.com</string>
+	<string>bloodbank-daff4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:65561323197:ios:c8bda12d4067ca849579d4</string>
+	<string>1:525731520309:ios:6b697a73fac329a9e2f67c</string>
 	<key>DATABASE_URL</key>
-	<string>https://bloodbankapp-c39ce.firebaseio.com</string>
+	<string>https://bloodbank-daff4.firebaseio.com</string>
 </dict>
 </plist>

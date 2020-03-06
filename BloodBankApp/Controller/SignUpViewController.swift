@@ -227,6 +227,7 @@ class SignUpViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = type
         imagePickerController.delegate = self
+        imagePickerController.modalPresentationStyle = .overFullScreen
         self.present(imagePickerController, animated: true, completion: nil)
     }
     

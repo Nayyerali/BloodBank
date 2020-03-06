@@ -72,6 +72,22 @@ class ChangeEmailViewController: UIViewController {
         })
     }
     
+    var passwordToggle = true
+    
+    @IBAction func passwordVisibilty(_ sender: Any) {
+        
+        if (passwordToggle == true) {
+            
+            passwordField.isSecureTextEntry = false
+
+        } else {
+            passwordField.isSecureTextEntry = true
+
+        }
+        passwordToggle = !passwordToggle
+    }
+    
+    
     func setUpElements() {
         errorLabel.alpha = 0
         Utilities.styleTextField(newEmailField)

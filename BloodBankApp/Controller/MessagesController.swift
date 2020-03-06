@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 class MessagesController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    //MARK: 
+    //MARK:
     var messages = [MessagesClass]()
     var newMessages:MessagesClass?
     var users = [User]()
@@ -30,11 +30,11 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         
-         super.viewWillAppear(animated)
-         self.tabBarController?.tabBar.isHidden = false
-     }
-       func observeUserMessages() {
+        
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    func observeUserMessages() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -49,8 +49,8 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                 
                 let messageId = snapshot.key
                 self.fetchMessageWithMessageId(messageId)
-                }, withCancel: nil)
             }, withCancel: nil)
+        }, withCancel: nil)
     }
     
     fileprivate func fetchMessageWithMessageId(_ messageId: String) {
@@ -66,7 +66,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                 }
                 self.attemptReloadOfTable()
             }
-            }, withCancel: nil)
+        }, withCancel: nil)
     }
     
     fileprivate func attemptReloadOfTable() {
@@ -80,10 +80,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     @objc func handleReloadTable() {
         self.messages = Array(self.messagesDictionary.values)
         messages.sort()
-//        self.messages.sort(by: { (message1, message2) -> Bool in
-//
-//            return message1.timestamp?.int32Value > message2.timestamp?.int32Value
-//        })
+        
         
         //this will crash because of background thread, so lets call this on dispatch_async main thread
         DispatchQueue.main.async(execute: {
@@ -92,7 +89,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func showChatControllerForUser(_ user: User) {
-
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let chatLogController = storyBoard.instantiateViewController(identifier: "ChatLogsViewController") as! ChatLogsViewController
         chatLogController.users = user
@@ -116,14 +113,14 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         
         
         if let userid = messages[indexPath.row].chatPartnerId(){
-
+            
             let new = ServerCommunication.sharedDelegate.firebaseFirestore.collection("Users").whereField("UserId", isEqualTo: userid).getDocuments { (snapshot, error) in
                 
                 if error == nil {
                     
                     if let usersData = snapshot?.documents {
                         // Got Donars
-                       // var users:Array = [User]()
+                        // var users:Array = [User]()
                         for matchingUser in usersData {
                             let usersDocuments = matchingUser.data()
                             let firstName = usersDocuments["First Name"] as! String
@@ -139,20 +136,20 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                             
                             self.users.append(user)
                             self.chatLogsTableView.reloadData()
-                           // print(user)
+                            // print(user)
                             cell.contactUserName.text = user.firstName
-
+                            
                             if let url = URL(string: (user.imageUrl)){
                                 cell.contactImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
                                 }
                             }
                         }
-//                            cell.contactUserName.text = self.users[indexPath.row].firstName
-//
-//                        if let url = URL(string: (self.users[indexPath.row].imageUrl)){
-//                            cell.contactImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
-//                            }
-//                        }
+                        //                            cell.contactUserName.text = self.users[indexPath.row].firstName
+                        //
+                        //                        if let url = URL(string: (self.users[indexPath.row].imageUrl)){
+                        //                            cell.contactImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
+                        //                            }
+                        //                        }
                     }
                 }
             }
@@ -165,12 +162,20 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
             
             self.showAlert(controller: self, title: "Delete Messages", message: "Do you really want to delete this Message?", actiontitle: "Delete") { (isDelete) in
                 if isDelete{
-                    
+                    let ref = Database.database().reference().child("user-messages").child(User.userSharefReference.userId).child(self.messages[indexPath.row].toId!).removeValue()
+                    let refrence2 = Database.database().reference().child("Messages").child(User.userSharefReference.userId).child(self.messages[indexPath.row].toId!).removeValue()
+                    self.showAlert(controller: self, title: "Success", message: "Chat Deleted Successfully") { (Ok) in
+                        
+                        self.messages.remove(at: indexPath.row)
+                        self.chatLogsTableView.reloadData()
+                    }
+                } else {
+                    self.showAlert(controller: self, title: "Failed", message: "Could Not Delete Chat") { (Ok) in
                 }
             }
         }
     }
-    
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let message = messages[indexPath.row]
@@ -182,24 +187,24 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         let new = ServerCommunication.sharedDelegate.firebaseFirestore.collection("Users").whereField("UserId", isEqualTo: chatPartnerId).getDocuments { (snapshot, error) in
             
             if error == nil {
-            
-            if let usersData = snapshot?.documents {
-                // Got Donars
-                for matchingUser in usersData {
-                    let usersDocuments = matchingUser.data()
-                    let firstName = usersDocuments["First Name"] as! String
-                    let bloodGroup = usersDocuments["BloodGroup"] as! String
-                    let imageUrl = usersDocuments["ImageURL"] as! String
-                    let userId = usersDocuments["UserId"] as! String
-                    let lastName = usersDocuments["LastName"] as! String
-                    let email = usersDocuments["Email"] as! String
-                    let dateOfBirth = usersDocuments["DateOfBirth"] as! String
-                    let phoneNumber = usersDocuments["PhoneNumber"] as! String
-                    
-                    let user = User(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, bloodGroup: bloodGroup, phoneNumber: phoneNumber, email: email, userId: userId, imageUrl: imageUrl)
-                    
-                    self.users.append(user)
-                    self.showChatControllerForUser(user)
+                
+                if let usersData = snapshot?.documents {
+                    // Got Donars
+                    for matchingUser in usersData {
+                        let usersDocuments = matchingUser.data()
+                        let firstName = usersDocuments["First Name"] as! String
+                        let bloodGroup = usersDocuments["BloodGroup"] as! String
+                        let imageUrl = usersDocuments["ImageURL"] as! String
+                        let userId = usersDocuments["UserId"] as! String
+                        let lastName = usersDocuments["LastName"] as! String
+                        let email = usersDocuments["Email"] as! String
+                        let dateOfBirth = usersDocuments["DateOfBirth"] as! String
+                        let phoneNumber = usersDocuments["PhoneNumber"] as! String
+                        
+                        let user = User(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, bloodGroup: bloodGroup, phoneNumber: phoneNumber, email: email, userId: userId, imageUrl: imageUrl)
+                        
+                        self.users.append(user)
+                        self.showChatControllerForUser(user)
                     }
                 }
             }

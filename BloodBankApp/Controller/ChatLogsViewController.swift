@@ -34,14 +34,16 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         enterMessageField.isEditable = true
-        enterMessageField.layer.borderWidth = 1
-        enterMessageField.layer.borderColor = UIColor.black.cgColor
         chatLogsCollectionVIew?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        chatLogsCollectionVIew?.alwaysBounceVertical = true
         chatLogsCollectionVIew?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
+        chatLogsCollectionVIew.scrollToItem(at: IndexPath(row: 0, section: 0), at: .bottom, animated: false)
         self.addObservsers()
         self.addTapGesture()
     }
+    
+    //    override func viewWillLayoutSubviews() {
+    //        chatLogsCollectionVIew.scrollToItem(at: IndexPath(row: 0, section: messages.count-1), at: .top, animated: false)
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,7 +73,6 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
                 DispatchQueue.main.async(execute: {
                     self.chatLogsCollectionVIew?.reloadData()
                 })
-                
             }, withCancel: nil)
             
         }, withCancel: nil)
@@ -199,7 +200,7 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
         } else {
             
             let ref = Database.database().reference().child("Messages")
-            let childRef = ref.childByAutoId()
+            let childRef = ref.child(User.userSharefReference.userId)
             let toId = users.userId
             let fromId = Auth.auth().currentUser?.uid
             let timeStamp = Int(Date().timeIntervalSince1970)
