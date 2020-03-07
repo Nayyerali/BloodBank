@@ -21,8 +21,8 @@ class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPic
         super.viewDidLoad()
         Utilities.styleTextField(requiredBlood)
         Utilities.styleFilledButton(addBtnOutlet)
-        pickerView.delegate = self as! UIPickerViewDelegate
-        pickerView.dataSource = self as! UIPickerViewDataSource
+        pickerView.delegate = self as UIPickerViewDelegate
+        pickerView.dataSource = self as UIPickerViewDataSource
         requiredBlood.inputView = pickerView
     }
     
@@ -36,6 +36,13 @@ class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPic
     
     @IBAction func addBtnClicked(_ sender: Any) {
         
+        if requiredBlood.text == "" {
+            showAlert(controller: self, title: "Error", message: "Please Select Required Blood Group") { (error) in
+                
+            }
+        } else {
+            print ("ABC")
+        
         ServerCommunication.sharedDelegate.requestdBlood(bloodGroup: requiredBlood.text!, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
             if status {
                 self.showAlert(controller: self, title: "Success", message: message) { (ok) in
@@ -46,8 +53,8 @@ class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPic
                     self.navigationController?.popViewController(animated: true)
                 }
             }
+            }
         }
-        print ("")
     }
     
     func showAlert(controller:UIViewController,title:String,message:String,completion:@escaping(_ okBtnPressed:Bool)->Void){

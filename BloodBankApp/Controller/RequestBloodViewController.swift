@@ -60,12 +60,13 @@ class RequestBloodViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequiredBloodTableViewCell") as! RequestBloodTableViewCell
+        
         cell.requiredBlood.text = bloodGroupArray[indexPath.row].bloodGroup
         cell.userName.text = bloodGroupArray[indexPath.row].firstName
         if let ImageUrl = URL(string: bloodGroupArray[indexPath.row].imageUrl) {
             cell.userImage.sd_setImage(with: ImageUrl, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
             }
-        }
+        } 
         return cell
     }
     

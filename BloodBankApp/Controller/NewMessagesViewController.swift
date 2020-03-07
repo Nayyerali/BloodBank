@@ -60,7 +60,6 @@ class NewMessagesViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewMessages") as! NewMessagesTableViewCell
         
-        
         if searchingUser {
             cell.contactUserName.text = searchUser[indexPath.row].firstName
             cell.contactBloodGroup.text = searchUser[indexPath.row].bloodGroup
@@ -71,11 +70,6 @@ class NewMessagesViewController: UIViewController,UITableViewDelegate,UITableVie
             }
             
         } else {
-            
-            //        let user = users[indexPath.row]
-            //        cell.contactUserName.text = user.firstName
-            //        cell.contactBloodGroup.text = user.bloodGroup
-            
             cell.contactUserName.text = users[indexPath.row].firstName
             cell.contactBloodGroup.text = users[indexPath.row].bloodGroup
             

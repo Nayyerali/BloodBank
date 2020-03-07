@@ -21,8 +21,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     @IBOutlet weak var chatLogsTableView: UITableView!
     
     override func viewDidLoad() {
-        print(newMessages?.chatPartnerId() as Any)
-        
         super.viewDidLoad()
         chatLogsTableView.delegate = self
         chatLogsTableView.dataSource = self
@@ -30,10 +28,10 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     func observeUserMessages() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
@@ -81,7 +79,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         self.messages = Array(self.messagesDictionary.values)
         messages.sort()
         
-        
         //this will crash because of background thread, so lets call this on dispatch_async main thread
         DispatchQueue.main.async(execute: {
             self.chatLogsTableView.reloadData()
@@ -110,7 +107,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
             dateFormatter.dateFormat = "hh:mm a"
             cell.dateLabel.text = dateFormatter.string(from: timeStampDate)
         }
-        
         
         if let userid = messages[indexPath.row].chatPartnerId(){
             
@@ -144,12 +140,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                                 }
                             }
                         }
-                        //                            cell.contactUserName.text = self.users[indexPath.row].firstName
-                        //
-                        //                        if let url = URL(string: (self.users[indexPath.row].imageUrl)){
-                        //                            cell.contactImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholderImage"), options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
-                        //                            }
-                        //                        }
                     }
                 }
             }
@@ -163,7 +153,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
             self.showAlert(controller: self, title: "Delete Messages", message: "Do you really want to delete this Message?", actiontitle: "Delete") { (isDelete) in
                 if isDelete{
                     let ref = Database.database().reference().child("user-messages").child(User.userSharefReference.userId).child(self.messages[indexPath.row].toId!).removeValue()
-                    let refrence2 = Database.database().reference().child("Messages").child(User.userSharefReference.userId).child(self.messages[indexPath.row].toId!).removeValue()
+                    let refrence2 = Database.database().reference().child("Messages").child(User.userSharefReference.userId).removeValue()
                     self.showAlert(controller: self, title: "Success", message: "Chat Deleted Successfully") { (Ok) in
                         
                         self.messages.remove(at: indexPath.row)
@@ -171,10 +161,10 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                     }
                 } else {
                     self.showAlert(controller: self, title: "Failed", message: "Could Not Delete Chat") { (Ok) in
+                    }
                 }
             }
         }
-    }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

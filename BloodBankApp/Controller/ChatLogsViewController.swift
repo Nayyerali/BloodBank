@@ -200,7 +200,7 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
         } else {
             
             let ref = Database.database().reference().child("Messages")
-            let childRef = ref.child(User.userSharefReference.userId)
+            let childRef = ref.childByAutoId()
             let toId = users.userId
             let fromId = Auth.auth().currentUser?.uid
             let timeStamp = Int(Date().timeIntervalSince1970)
