@@ -25,8 +25,6 @@ class RequestBloodViewController: UIViewController,UITableViewDelegate,UITableVi
         bloodRequestsTableView.dataSource = self
         bloodRequestsTableView.delegate = self
         fetchAllBLoodRequests()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {

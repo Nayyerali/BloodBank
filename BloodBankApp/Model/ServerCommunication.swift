@@ -37,12 +37,15 @@ public class ServerCommunication{
         }
     }
 //
-    func uploadUserDiseases (addedDisease:[Disease],imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
+    func uploadUserDiseases (addedDisease:[String],completion:@escaping(_ status:Bool,_ message:String)->Void){
 
-        let diseaseCollection = firebaseFirestore.collection("User Diseases").document().setData(["UserDiseases":addedDisease,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
+//        let diseaseCollection = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).collection("User Disease").document(User.userSharefReference.userId).setData(["Disease":addedDisease]) { (error) in
+            
+        let diseaseCollection = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).updateData(["Disease":addedDisease]) { (error) in
+            
             if error == nil {
                 // Success
-                completion(true, "Selected Diseases Are Added")
+                completion(true, "Selected Diseases Are Added Successfully")
             } else {
                 // Failure
                 completion(false, (error!.localizedDescription))

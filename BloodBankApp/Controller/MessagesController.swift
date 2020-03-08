@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 class MessagesController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    //MARK:
+
     var messages = [MessagesClass]()
     var newMessages:MessagesClass?
     var users = [User]()
@@ -115,8 +115,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                 if error == nil {
                     
                     if let usersData = snapshot?.documents {
-                        // Got Donars
-                        // var users:Array = [User]()
+
                         for matchingUser in usersData {
                             let usersDocuments = matchingUser.data()
                             let firstName = usersDocuments["First Name"] as! String
@@ -132,7 +131,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                             
                             self.users.append(user)
                             self.chatLogsTableView.reloadData()
-                            // print(user)
                             cell.contactUserName.text = user.firstName
                             
                             if let url = URL(string: (user.imageUrl)){

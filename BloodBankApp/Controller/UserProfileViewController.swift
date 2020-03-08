@@ -27,7 +27,6 @@ class UserProfileViewController: UIViewController {
         elements()
         setupUserProfile()
         elementsEditing()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {

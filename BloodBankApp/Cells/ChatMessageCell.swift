@@ -14,7 +14,6 @@ class ChatMessageCell: UICollectionViewCell {
         let tv = UITextView()
         tv.text = "SAMPLE TEXT FOR NOW"
         tv.font = UIFont(name: "Verdana", size: 16)
-       // tv.font = UIFont.systemFont(ofSize: 16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
         tv.isEditable = false
@@ -27,7 +26,6 @@ class ChatMessageCell: UICollectionViewCell {
     
     let bubbleView: UIView = {
         let view = UIView()
-        //view.backgroundColor = UIColor()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true

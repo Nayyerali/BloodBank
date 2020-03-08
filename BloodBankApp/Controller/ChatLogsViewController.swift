@@ -41,10 +41,6 @@ class ChatLogsViewController:UIViewController, UITextFieldDelegate, UICollection
         self.addTapGesture()
     }
     
-    //    override func viewWillLayoutSubviews() {
-    //        chatLogsCollectionVIew.scrollToItem(at: IndexPath(row: 0, section: messages.count-1), at: .top, animated: false)
-    //    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true

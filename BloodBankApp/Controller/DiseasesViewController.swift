@@ -14,6 +14,8 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     var userDiseases = [Disease]()
     var searchDiseases = [Disease]()
     var selectedDisease = [Disease]()
+    var selectiondiseases = [String]()
+    var userSelectedDiseases = [String]()
     var searchingDieases = false
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,7 +31,6 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         diseaseTableView.dataSource = self
         diseaseTableView.delegate = self
         searchBar.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,71 +71,35 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     func selectDeselectCell(tableView: UITableView, indexPath: IndexPath){
         self.selectedDisease.removeAll()
         
-        if let selectionArray = tableView.indexPathsForSelectedRows{
-            for indexOfRow in selectionArray {
-                selectedDisease.append(userDiseases[indexPath.row])
-                print (selectedDisease)
-            }
+        if (tableView.indexPathForSelectedRow?.description) != nil{
+            selectedDisease.append(userDiseases[indexPath.row])
+            
+            let sortedDiseases = selectedDisease.compactMap {$0}
+            
+            let userDiseases = sortedDiseases.first?.disease
+            
+            userSelectedDiseases.append(userDiseases!)
+            
+            print (userDiseases!)
         }
+        
     }
-    //    func stringDict() {
-    //
-    //    var str = ["A", "B", "C", "D", "E"]
-    //    var abc = [String]()
-    //    var abcd = [String:Any].self
-    //    let num = "0:"
-    //    for a in str{
-    //
-    //        abcd.inser = abc.append(num + a)
-    //
-    //    }
-    //
-    //        print(abc)
-    //    }
     
-    var dict = [String:Any]()
-    var i = 0
-    
-    //    func arrayToDict () {
-    //
-    ////        var dict = [String:Any]()
-    ////        var i = 0
-    ////
-    //        for values in selectedDisease {
-    //            i = i + 1
-    //
-    //            dict.updateValue(values, forKey: "\(i)")
-    //        }
-    //
-    //    }
-    //
     @IBAction func saveDiseases(_ sender: Any) {
         
-        //  abc()
-        
-        //        let dictDiseaseArray: [Disease: Int] = selectedDisease.reduce(into: [:], {result, next in
-        //            result[next] = 0
-        //        }
-        ////        )
-//        for values in selectedDisease {
-//            i = i + 1
-//
-//            dict.updateValue(values, forKey: "\(i)")
-//        }
-//        print (dict)
-        
-        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease:selectedDisease, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+        ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: userSelectedDiseases) { (status, message) in
             if status {
                 self.showAlert(controller: self, title: "Success", message: message) { (ok) in
                     self.navigationController?.popViewController(animated: true)
                 }
+                
             } else {
                 self.showAlert(controller: self, title: "Failed", message: message) { (ok) in
                     self.navigationController?.popViewController(animated: true)
                 }
+                print ("User Diseases Uploaded Successfully")
             }
         }
-        print ("User Diseases Uploaded Successfully")
     }
     
     // this functionality is not used
@@ -166,13 +131,11 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
                 do {
                     let abc = try JSONDecoder().decode([Disease].self, from: data!)
                     print("Json fetched Succesfully")
-//                    print(self.userDiseases)
                     
                     for diseses in abc{
                         
                         self.userDiseases.append(diseses)
                     }
-//                    print(self.userDiseases)
                     DispatchQueue.main.async {
                         
                         self.diseaseTableView.reloadData()

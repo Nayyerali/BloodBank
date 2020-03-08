@@ -43,6 +43,7 @@ class ChangeEmailViewController: UIViewController {
                                     print ("Error signing out: %@", signOutError)
                                 }
                             }
+                            self.navigationController?.popViewController(animated: true)
                         }
                     } else {
                         self.errorLabel.alpha = 1

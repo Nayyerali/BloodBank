@@ -76,18 +76,18 @@ class ChangePasswordViewController: UIViewController {
             showError(error!)
             return
         }
-        
-        currentPassword.isEnabled = false
-        newPassword.isEnabled = false
-        confirmNewPassword.isEnabled = false
-        
-        
+
         changePassword(email: User.userSharefReference.email, currentPassword: currentPassword.text!, newPassword: newPassword.text!) { (error) in
             if error == nil {
                 
+                self.currentPassword.isEnabled = false
+                self.newPassword.isEnabled = false
+                self.confirmNewPassword.isEnabled = false
+                
                 self.showAlert(controller: self, title: "Success", message: "Password Changed Successfully") { (Ok) in
+                    //self.navigationController?.popViewController(animated: true)
                     self.showAlert(controller: self, title: "Confirmation", message: "Please Login With Updated Password") { (Ok) in
-                        
+
                         let firebaseAuth = Auth.auth()
                         do {
                             try firebaseAuth.signOut()

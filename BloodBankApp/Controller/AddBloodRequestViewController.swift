@@ -42,17 +42,17 @@ class AddBloodRequestViewController: UIViewController,UIPickerViewDelegate,UIPic
             }
         } else {
             print ("ABC")
-        
-        ServerCommunication.sharedDelegate.requestdBlood(bloodGroup: requiredBlood.text!, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
-            if status {
-                self.showAlert(controller: self, title: "Success", message: message) { (ok) in
-                    self.navigationController?.popViewController(animated: true)
+            
+            ServerCommunication.sharedDelegate.requestdBlood(bloodGroup: requiredBlood.text!, imageUrl: User.userSharefReference.imageUrl, name: User.userSharefReference.firstName) { (status, message) in
+                if status {
+                    self.showAlert(controller: self, title: "Success", message: message) { (ok) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } else {
+                    self.showAlert(controller: self, title: "Failed", message: message) { (ok) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
-            } else {
-                self.showAlert(controller: self, title: "Failed", message: message) { (ok) in
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
             }
         }
     }
