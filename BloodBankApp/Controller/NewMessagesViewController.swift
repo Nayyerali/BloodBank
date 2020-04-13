@@ -30,8 +30,8 @@ class NewMessagesViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
+        newMessageTableView.allowsSelection = true
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -88,15 +88,16 @@ class NewMessagesViewController: UIViewController,UITableViewDelegate,UITableVie
         if searchingUser {
             dismiss(animated: true){
                 let user = self.searchUser[indexPath.row]
+                tableView.allowsSelection = false
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let chatLogController = storyBoard.instantiateViewController(identifier: "ChatLogsViewController") as! ChatLogsViewController
                 chatLogController.users = user
                 self.navigationController!.pushViewController(chatLogController, animated: true)
             }
         } else {
-            
             dismiss(animated: true){
                 let user = self.users[indexPath.row]
+                tableView.allowsSelection = false
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let chatLogController = storyBoard.instantiateViewController(identifier: "ChatLogsViewController") as! ChatLogsViewController
                 chatLogController.users = user

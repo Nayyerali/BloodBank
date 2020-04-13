@@ -188,6 +188,13 @@ class SignUpViewController: UIViewController {
             }
         }
     }
+    
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//              if segue.identifier == "toDashboard" {
+//                  let destination = segue.destination as! UserProfileViewController
+//              }
+//          }
+    
     func addGesture(){
         let gesture = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
         placeHolderImage.addGestureRecognizer(gesture)

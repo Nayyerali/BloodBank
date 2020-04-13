@@ -30,6 +30,7 @@ class MatchingDonarsViewController: UIViewController {
         
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        tableView.allowsSelection = true
     }
     
     func fetchUserData () {
@@ -99,6 +100,7 @@ extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.allowsSelection = false
         let userID = self.user[indexPath.row].userId
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let donarProfileController = storyBoard.instantiateViewController(identifier: "DonarsProfileViewController") as! DonarsProfileViewController
@@ -109,6 +111,7 @@ extension MatchingDonarsViewController: UITableViewDelegate,UITableViewDataSourc
                 
             }else{
             }
+
         }
     }
 }

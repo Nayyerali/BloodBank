@@ -17,6 +17,7 @@ public class ServerCommunication{
     var firebaseStorage:Storage!
     var firebaseDatabase:Database!
     
+    
     static var sharedDelegate = ServerCommunication()
     
     private init() {
@@ -26,7 +27,7 @@ public class ServerCommunication{
     }
     
     func requestdBlood(bloodGroup:String,imageUrl:String,name:String,completion:@escaping(_ status:Bool,_ message:String)->Void){
-        let requestCollection = firebaseFirestore.collection("BloodRequest").document().setData(["BloodGroup":bloodGroup,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
+        let reference = firebaseFirestore.collection("BloodRequest").document().setData(["BloodGroup":bloodGroup,"Name":name,"ImageUrl":imageUrl,"Date":FieldValue.serverTimestamp(),"Id":Auth.auth().currentUser?.uid,"UserId":User.userSharefReference.userId]) { (error) in
             if error == nil{
                 // Success
                 completion(true,"Blood Request is added")
@@ -36,19 +37,69 @@ public class ServerCommunication{
             }
         }
     }
-//
-    func uploadUserDiseases (addedDisease:[String],completion:@escaping(_ status:Bool,_ message:String)->Void){
 
-//        let diseaseCollection = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).collection("User Disease").document(User.userSharefReference.userId).setData(["Disease":addedDisease]) { (error) in
-            
-        let diseaseCollection = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).updateData(["Disease":addedDisease]) { (error) in
-            
+    func uploadUserDiseases (addedDisease:[String],completion:@escaping(_ status:Bool,_ message:String)->Void){
+        
+        //        let diseaseCollection = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).collection("User Disease").document(User.userSharefReference.userId).setData(["Disease":addedDisease]) { (error) in
+//
+//        let reference = firebaseFirestore.collection("Users").document(User.userSharefReference.userId).updateData(["Disease":addedDisease]) { (error) in
+//
+//            if error == nil {
+//                // Success
+//                completion(true, "Selected Diseases Are Added Successfully")
+//            } else {
+//                // Failure
+//                completion(false, (error!.localizedDescription))
+//            }
+//        }
+        
+        let reference = firebaseFirestore.collection("Diseases").document(User.userSharefReference.userId).setData(["Disease":addedDisease]) { (error) in
+
             if error == nil {
                 // Success
                 completion(true, "Selected Diseases Are Added Successfully")
             } else {
                 // Failure
                 completion(false, (error!.localizedDescription))
+            }
+        }
+    }
+    
+    func fetchUserDiseases (userId:String,completion:@escaping(_ status:Bool,_ message:String,_ arrayOfDisease:[String]?)->Void) {
+        firebaseFirestore!.collection("Diseases").document(userId).getDocument { (snapshot, error) in
+            
+           // if error == nil {
+            if let snapshots = snapshot {
+                if let diseaseSnapshot = snapshots.data(){
+                let diseases = diseaseSnapshot["Disease"] as! [String]
+                completion(true, "Got User Disease",diseases)
+            } else {
+                completion(false, "Could Not Get User Disease",nil)
+            }
+        }else{
+            // you get an error
+                completion(false,error!.localizedDescription,nil)
+        }
+        }
+    }
+    
+    func fetchUserData(userId:String,completion:@escaping(_ status:Bool,_ message:String,_ user:User?)->Void){
+        
+        // downloading user data using initialized firebase keys as dictionary
+        
+        firebaseFirestore.collection("Users").document(userId).getDocument { (snapshot, error) in
+            if let snapshot = snapshot{
+                // you get some data
+                if let userDic = snapshot.data(){
+                    let user = User(userDict: userDic)
+                    completion(true,"Get user Data",user)
+                }else{
+                    completion(false,"Unable to get user data",nil)
+                }
+                
+            }else{
+                // you get an error
+                completion(false,error!.localizedDescription,nil)
             }
         }
     }
@@ -64,7 +115,7 @@ public class ServerCommunication{
                     for bloodRequest in requestDoc {
                         let requestData = bloodRequest.data()
                         let name = requestData["Name"] as! String
-                        let date = requestData["Date"] as! Timestamp
+                        //let date = requestData["Date"] as! Timestamp
                         let requiredBloodGroup = requestData["BloodGroup"] as! String
                         let id = requestData["Id"] as! String
                         let image = requestData["ImageUrl"] as! String
@@ -141,26 +192,7 @@ public class ServerCommunication{
         }
     }
     
-    func fetchUserData(userId:String,completion:@escaping(_ status:Bool,_ message:String,_ user:User?)->Void){
-        
-        // downloading user data using initialized firebase keys as dictionary
-        
-        firebaseFirestore.collection("Users").document(userId).getDocument { (snapshot, error) in
-            if let snapshot = snapshot{
-                // you get some data
-                if let userDic = snapshot.data(){
-                    let user = User(userDict: userDic)
-                    completion(true,"Get user Data",user)
-                }else{
-                    completion(false,"Unable to get user data",nil)
-                }
-                
-            }else{
-                // you get an error
-                completion(false,error!.localizedDescription,nil)
-            }
-        }
-    }
+    
     
     func fetchAllDonarsData (completion:@escaping(_ status:Bool, _ message:String, _ users:[User]?) -> Void) {
         firebaseFirestore.collection("Users").getDocuments { (snapshot, error) in

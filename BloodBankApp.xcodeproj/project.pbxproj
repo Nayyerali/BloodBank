@@ -40,7 +40,6 @@
 		17B4103323CDED4100696589 /* ServerCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103223CDED4100696589 /* ServerCommunication.swift */; };
 		17B4103523CDEDD700696589 /* DonarsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */; };
 		17B4103923CDEE6F00696589 /* DonarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */; };
-		17B4103D23CE075C00696589 /* DonarsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B4103C23CE075C00696589 /* DonarsData.swift */; };
 		17B9A9C423EA0F2400BD8BF9 /* Gif+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */; };
 		17D48CBB2402CAE800AE080C /* NewMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */; };
 		17DC9B88240FF82E008FA88A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC9B87240FF82E008FA88A /* ForgotPasswordViewController.swift */; };
@@ -89,7 +88,6 @@
 		17B4103223CDED4100696589 /* ServerCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommunication.swift; sourceTree = "<group>"; };
 		17B4103423CDEDD700696589 /* DonarsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsProfileViewController.swift; sourceTree = "<group>"; };
 		17B4103823CDEE6F00696589 /* DonarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsTableViewCell.swift; sourceTree = "<group>"; };
-		17B4103C23CE075C00696589 /* DonarsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarsData.swift; sourceTree = "<group>"; };
 		17B9A9C323EA0F2400BD8BF9 /* Gif+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Image.swift"; sourceTree = "<group>"; };
 		17D48CBA2402CAE800AE080C /* NewMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesViewController.swift; sourceTree = "<group>"; };
 		17DC9B87240FF82E008FA88A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				170EB6DC23E632910033C8E6 /* Disease.swift */,
 				179AEC7C2403FEDA00827377 /* MessagesClass.swift */,
 				17A20DBF23EE13AF0052B7BA /* AddRequest.swift */,
-				17B4103C23CE075C00696589 /* DonarsData.swift */,
 				17FCD61C23E7910E00F2356E /* ImageViewDesign.swift */,
 				170EB6DB23E632900033C8E6 /* CheckBox.swift */,
 				EF8C555523E8D454002BD190 /* CustomLoader.swift */,
@@ -394,7 +391,6 @@
 				17DC9B88240FF82E008FA88A /* ForgotPasswordViewController.swift in Sources */,
 				17A20DC223EE15AB0052B7BA /* RequestBloodViewController.swift in Sources */,
 				17FCD61D23E7910E00F2356E /* ImageViewDesign.swift in Sources */,
-				17B4103D23CE075C00696589 /* DonarsData.swift in Sources */,
 				1770E21D24032B820084985E /* NewMessagesTableViewCell.swift in Sources */,
 				1746A1FD23CCC9EF00FAB595 /* SceneDelegate.swift in Sources */,
 			);

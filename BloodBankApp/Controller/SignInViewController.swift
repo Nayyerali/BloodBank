@@ -84,6 +84,12 @@ class SignInViewController: UIViewController {
         }
     }
     
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//              if segue.identifier == "toDashboard" {
+//                  let destination = segue.destination as! UserProfileViewController
+//              }
+//          }
+    
     func editingStuff(){
         
         if emailTextField.isEditing && passwordTextField.isEditing {

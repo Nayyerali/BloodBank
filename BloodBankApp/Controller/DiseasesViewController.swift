@@ -25,7 +25,6 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
         super.viewDidLoad()
         self.selectedDisease.removeAll()
         downloadJson ()
-        
         self.diseaseTableView.isEditing = true
         self.diseaseTableView.allowsMultipleSelectionDuringEditing = true
         diseaseTableView.dataSource = self
@@ -65,27 +64,32 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        self.selectDeselectCell(tableView: tableView, indexPath: indexPath)
+       // self.selectDeselectCell(tableView: tableView, indexPath: indexPath)
     }
     
     func selectDeselectCell(tableView: UITableView, indexPath: IndexPath){
         self.selectedDisease.removeAll()
-        
-        if (tableView.indexPathForSelectedRow?.description) != nil{
+
+        if let selectionArray = tableView.indexPathForSelectedRow?.description{
+
             selectedDisease.append(userDiseases[indexPath.row])
-            
+
             let sortedDiseases = selectedDisease.compactMap {$0}
-            
+
             let userDiseases = sortedDiseases.first?.disease
-            
+
             userSelectedDiseases.append(userDiseases!)
-            
-            print (userDiseases!)
         }
-        
+         print (userSelectedDiseases)
     }
     
     @IBAction func saveDiseases(_ sender: Any) {
+        
+        if userSelectedDiseases.isEmpty {
+            self.showAlert(controller: self, title: "Empty", message: "Please select something to upload") { (Ok) in
+                return
+            }
+        } else {
         
         ServerCommunication.sharedDelegate.uploadUserDiseases(addedDisease: userSelectedDiseases) { (status, message) in
             if status {
@@ -101,6 +105,7 @@ class DiseasesViewController: UIViewController, UITableViewDelegate,UITableViewD
             }
         }
     }
+}
     
     // this functionality is not used
     

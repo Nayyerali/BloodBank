@@ -30,6 +30,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        chatLogsTableView.allowsSelection = true
     }
     
     func observeUserMessages() {
@@ -166,6 +167,8 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.allowsSelection = false
         let message = messages[indexPath.row]
         
         guard let chatPartnerId = message.chatPartnerId() else {

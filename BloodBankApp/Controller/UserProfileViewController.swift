@@ -20,6 +20,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var profileBloodGroup: UITextField!
     @IBOutlet weak var profileDateOfBirth: UITextField!
     @IBOutlet weak var logOutBtn: UIButton!
+    @IBOutlet weak var viewDiseasesBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,15 @@ class UserProfileViewController: UIViewController {
         profileLastName.isEnabled = false
     }
     
+    @IBAction func viewDiseasesBtnTapped(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let diseaseVIewController = storyBoard.instantiateViewController(identifier: "ViewDisease") as! ViewDiseaseViewController
+        diseaseVIewController.user = User.userSharefReference
+        diseaseVIewController.isCurrentUserComing = true
+        self.navigationController!.pushViewController(diseaseVIewController, animated: true)
+    }
+    
     func setupUserProfile (){
         
         self.profileFirstName.text = User.userSharefReference.firstName
@@ -61,10 +71,10 @@ class UserProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDashboard" {
-            let destination = segue.destination as! UserProfileViewController
-        }
-    }
+          if segue.identifier == "toDashboard" {
+              let destination = segue.destination as! UserProfileViewController
+          }
+      }
     
     @IBAction func logOutBtn(_ sender: Any) {
         
@@ -81,6 +91,7 @@ class UserProfileViewController: UIViewController {
     func elements () {
         
         Utilities.styleHollowButton(logOutBtn)
+        Utilities.styleFilledButton(viewDiseasesBtn)
         Utilities.styleTextField(profileFirstName)
         Utilities.styleTextField(profileLastName)
         Utilities.styleTextField(profilePhoneNumber)

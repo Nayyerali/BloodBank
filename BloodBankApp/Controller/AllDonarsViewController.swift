@@ -26,7 +26,7 @@ class AllDonarsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.allowsSelection = true
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -67,6 +67,7 @@ extension AllDonarsViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.allowsSelection = false
         let userID = self.user[indexPath.row].userId
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let donarProfileController = storyBoard.instantiateViewController(identifier: "DonarsProfileViewController") as! DonarsProfileViewController
@@ -76,7 +77,6 @@ extension AllDonarsViewController: UITableViewDelegate,UITableViewDataSource {
                 self.navigationController!.pushViewController(donarProfileController, animated: true)
                 
             }else{
-                
             }
         }
     }

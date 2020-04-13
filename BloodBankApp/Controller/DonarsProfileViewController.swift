@@ -52,6 +52,18 @@ class DonarsProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func viewDiseaseBtnPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "ViewDisease", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewDisease" {
+            let destination = segue.destination as! ViewDiseaseViewController
+            destination.user = donar
+        }
+    }
+    
     func fieldsStatus () {
         donarFirstName.isEnabled = false
         donarLastName.isEnabled = false
